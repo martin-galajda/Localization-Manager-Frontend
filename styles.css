@@ -1,0 +1,47 @@
+/* Master Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin:0;
+}
+
+project-detail .panel.panel-default .panel-body p {
+	display: inline-block;
+}
+
+project-detail .panel.panel-default .panel-body label {
+	width: 150px;
+}
+
+project-detail .panel-default.panel .panel-body img {
+	position: absolute;
+	top: 150px;
+	left: 750px;
+	width: 450px;
+}
+
+.input-filter.col-md-3 {
+	padding-left: 0px;
+}
+
+.input-filter.col-md-3 i.glyphicon {
+	position: absolute;
+	right: 25px;
+	top: 8px;
+	font-size: 16px;
+}
+
+p.page-heading {
+	position: absolute;
+	left: 28%;
+	color: #fff;
+	font-size: 32px;
+}

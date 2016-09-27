@@ -1,0 +1,43 @@
+<button class="btn btn-primary" (click)="goBack()">
+	<i class="glyphicon glyphicon-arrow-left"></i> Back
+</button>
+<button class="btn btn-success" (click)="edit()">
+	Edit
+</button>
+<div *ngIf="project" class="panel panel-default">
+	<div class="panel-body">
+		<div>
+			<label>Project Id:</label>
+			<p>{{project.id}}</p>
+		</div>
+		<div>
+			<label>Project name:</label>
+			<p>{{project.name}}</p>
+		</div>
+		<div>
+			<label>Assignee:</label>
+			<p>{{project.assignee.name}}</p>
+		</div>
+		<div>
+			<label>Reviewer:</label>
+			<p>{{project.reviewer.name}}</p>
+		</div>
+		<div>
+			<label>GitUrl:</label>
+			<p>{{project.git_url}}</p>
+		</div>
+		<div>
+			<label>Stash ID:</label>
+			<p>{{project.stash_id}}</p>
+		</div>
+		<div>
+			<label>Resource path:</label>
+			<p>{{project.path_to_resources}}</p>
+		</div>
+		<div>
+			<label>Resource prefix: </label>
+			<p>{{project.resource_prefix}}</p>
+		</div>
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUFV0KKB7RflIAz5hX0N2V2BURxTlLuQ8J7pBD2lS7zwkWeYaZWKHQdz4"/>
+	</div>
+</div>

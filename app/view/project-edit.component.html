@@ -1,0 +1,45 @@
+<div class="container" >
+	<div class="row">
+		<div class="col-md-3">
+			<button class="btn btn-primary" (click)="goBack()">
+				<i class="glyphicon glyphicon-arrow-left"></i>
+				Back
+			</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form *ngIf="model">
+				<div class="form-group">
+					<label for="name">Project name: </label>
+					<input class="form-control" type="text" name="name" id="name" [(ngModel)]="model.name" />
+				</div>
+				<div class="form-group">
+					<label for="name">GIT URL: </label>
+					<input class="form-control" type="text" name="git_url" id="name" [(ngModel)]="model.git_url" />
+				</div>
+				<div class="form-group">
+					<label for="name">Stash ID: </label>
+					<input class="form-control" type="text" name="stash_id" id="name" [(ngModel)]="model.stash_id" />
+				</div>
+				<div class="form-group">
+					<label for="name">Path to resources: </label>
+					<input class="form-control" type="text" name="path_to_resources" id="name" [(ngModel)]="model.path_to_resources" />
+				</div>
+				<div class="form-group">
+					<label for="name">Resource prefix: </label>
+					<input class="form-control" type="text" name="resource_prefix" id="resource_prefix" [(ngModel)]="model.resource_prefix" />
+				</div>
+				<div class="form-group">
+					<label for="name">Convert name: </label>
+					<input class="form-control" type="text" name="converter_name" id="converter_name" [(ngModel)]="model.converter.name" />
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+</div>
