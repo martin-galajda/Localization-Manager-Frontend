@@ -1,28 +1,71 @@
-
-<div class="col-md-3 input-filter">
-	<input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query"/>
+<div>
+	<div class="col-md-3 input-filter">
+	<input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
 	<i class="glyphicon glyphicon-search"></i>
-</div>
+	</div>
 <table class="table table-bordered table-striped">
 	<tr>
-		<th>Project name</th>
-		<th>Git URL</th>
-		<th>Stash ID</th>
-		<th>Path to resources</th>
-		<th>Resource prefix</th>
-		<th>Converter name</th>
-		<th>Assignee</th>
-		<th>Reviewer</th>
+		<th>
+			Project name
+		</th>
+		<th>
+			Git URL
+		</th>
+		<!--
+
+		<th>
+			Stash ID
+		</th>
+	-->
+
+		<th>
+			Path to resources
+		</th>
+		<!--
+
+		<th>
+			Resource prefix
+		</th>
+	-->
+
+		<!--
+
+		<th>
+			Converter name
+		</th>
+	-->
+
+		<th>
+			Assignee
+		</th>
+
+		<!--
+		<th>
+			Reviewer
+		</th>
+	-->
+
 	</tr>
 
 	<tr *ngFor="let project of projects | filter:query"  (click)="goToDetail(project)">
 		<td *ngIf="!project.hidden">{{project.name}}</td>
 		<td *ngIf="!project.hidden">{{project.git_url}}</td>
+		<!--
+
 		<td *ngIf="!project.hidden">{{project.stash_id}}</td>
+	-->
+		<!--
+
 		<td *ngIf="!project.hidden">{{project.path_to_resources}}</td>
+	-->
 		<td *ngIf="!project.hidden">{{project.resource_prefix}}</td>
+		<!--
 		<td *ngIf="!project.hidden">{{project.converter.name}}</td>
+	-->
 		<td *ngIf="!project.hidden">{{project.assignee.name}}</td>
+		<!--
 		<td *ngIf="!project.hidden">{{project.reviewer.name}}</td>
+	-->
 	</tr>
 </table>
+</div>

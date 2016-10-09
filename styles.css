@@ -45,3 +45,14 @@ p.page-heading {
 	color: #fff;
 	font-size: 32px;
 }
+
+td {
+	cursor: pointer;
+}
+tr:hover {
+	border: 2px solid #ccc;
+}
+
+tr {
+	transition: border 200ms;
+}

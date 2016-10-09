@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { ProjectDetailComponent } from './js/components/project-detail.component';
 import { ProjectListComponent } from './js/components/project-list.component';
@@ -15,6 +16,7 @@ import { routing } from './app.routing';
 	imports:[
 		BrowserModule,
 		FormsModule,
+		HttpModule,
 		routing
 	],
 	declarations: [
