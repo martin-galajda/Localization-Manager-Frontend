@@ -20,7 +20,7 @@ const appRoutes: Routes = [
 		pathMatch: 'full'
 	},
 	{
-		path 'project/edit/:id',
+		path: 'project/edit/:id',
 		component: ProjectEditComponent
 	}
 ]
