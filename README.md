@@ -10,7 +10,7 @@ Run <code>npm install</code> to download and install required packages.
 </div>
 
 <div>
-If the typings folder doesn't show up after running <code>npm install</code>, you'll need to install it manually with the comamnd : npm run typings install.
+If the typings folder doesn't show up after running <code>npm install</code>, you'll need to install it manually with the comamnd: <div><code>npm run typings install.</code></div>
 </div>
 
 <b>3. BUILD AND RUN APPLICATION</b>
