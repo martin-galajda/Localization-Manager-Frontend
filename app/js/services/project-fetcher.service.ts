@@ -17,7 +17,7 @@ export class ProjectFetcherService {
 			.catch(this.handleError)
 	}
 
-	getProject(id: number): Promise<Project> {
+	getProject(id: string): Promise<Project> {
 		return this.getProjects().then(projects => projects.find(project => project.id === id));
 	}
 
