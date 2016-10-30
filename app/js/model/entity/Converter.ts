@@ -1,7 +1,7 @@
 export class Converter {
-	id: number;
+	id: string;
 	name: string;
 	script: string;
-	input_format: string;
-	output_format: string;
+	inputFormat: string;
+	outputFormat: string;
 }

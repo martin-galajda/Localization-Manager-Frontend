@@ -18,7 +18,7 @@ export class ProjectEditComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.route.params.forEach((params: Params) => {
-			let id = +params['id'];
+			let id = params['id'];
 			this.projectFetcher.getProject(id)
 				.then(project => this.model = project);
 		});

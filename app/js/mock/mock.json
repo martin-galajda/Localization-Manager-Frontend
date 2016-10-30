@@ -1,0 +1,56 @@
+[
+    {
+        "Id": 1,
+        "Name": "gajim",
+        "Assignee": {
+            "Id": 1,
+            "Name": "Assignee User",
+            "TeamName": "Example team"
+        },
+        "Reviewer": {
+            "Id": 2,
+            "Name": "Reviewer User",
+            "TeamName": "Example team"
+        },
+        "Converter": {
+            "Id": 1,
+            "Name": "Po Converter",
+            "InputFormat": "po",
+            "Script": "Script name",
+            "OutputFormat": "xliff"
+        },
+        "Description": "xmpp (Jabber) client written in python",
+        "GitUrl": "https://github.com/sgala/gajim",
+        "Format": "po",
+        "PathToResources": "/po",
+        "ResourcePrefix": "gajim",
+        "StashId": "stash_id"
+    },
+    {
+        "Id": 2,
+        "Name": "pidgin",
+        "Assignee": {
+            "Id": 1,
+            "Name": "Assignee User",
+            "TeamName": "Example team"
+        },
+        "Reviewer": {
+            "Id": 2,
+            "Name": "Reviewer User",
+            "TeamName": "Example team"
+        },
+        "Converter": {
+            "Id": 1,
+            "Name": "Po Converter",
+            "InputFormat": "po",
+            "Script": "Script name",
+            "OutputFormat": "xliff"
+        },
+        "Description": "graphical IM client written",
+        "GitUrl": "https://github.com/tieto/pidgin",
+        "Format": "po",
+        "PathToResources": "/po",
+        "ResourcePrefix": "pidgin",
+        "StashId": "stash_id"
+    }
+]
