@@ -1,27 +1,44 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../model/entity/Project';
 import { PROJECTS } from '../mock/mock-projects';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { AppConfig } from '../Constants/AppConfig';
-import 'rxjs/add/operator/toPromise';
+
+import 'rxjs/Rx';
+
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ProjectFetcherService {
 	constructor(private http: Http) { }
 
-	getProjects(): Promise<Project[]> {
-		return this.http.get(AppConfig.GET_PROJECTS_API_ENDPOINT).toPromise().then(response => {
-			console.log(response.json());
-			return response.json() as Project[];
-		})
-			.catch(this.handleError)
+	getProjects(): Observable<Project[]> {
+		return this.http.get(AppConfig.GET_PROJECTS_API_ENDPOINT)
+		.map(this.extractData)
+			.catch(this.handleError);
 	}
 
-	getProject(id: string): Promise<Project> {
-		return this.getProjects().then(projects => projects.find(project => project.id === id));
+	getProject(id: string): Observable<Project> {
+		return this.getProjects().map(projects => projects.find(project => project.id === id));
 	}
 
-	handleError(response: any) {
+	addProject(project: Project): Observable<Project> {
+		let headers = new Headers({ 'Content-Type': 'application/json'});
+		let options = new RequestOptions({headers: headers});
+
+		return this.http.post(AppConfig.POST_PROJECTS_API_ENDPOINT, project, options)
+			.map(this.extractData)
+			.catch(this.handleError);
+	}
+
+	private extractData(res: Response) {
+		let body = res.json();
+		return body || { };
+	}
+
+	private handleError(response: any) {
 		console.log('error', response);
+
+		return Observable.throw('error');
 	}
 }

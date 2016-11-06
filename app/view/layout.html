@@ -6,12 +6,15 @@
 			</p>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="/">Prihlasit sa</a>
+					<button class="show-sign-in-modal-btn btn btn-primary" (click)="openSignInModal()">
+						Sign in
+					</button>
 				</li>
 			</ul>
 		</div>
 	</div>
 </nav>
-<div class="container-fluid">
+<sign-in-modal [showModal]="showSignInModal"></sign-in-modal>
+<div class="container-fluid" [ngClass]="{'transient':showSignInModal}">
 	<router-outlet></router-outlet>
 </div>

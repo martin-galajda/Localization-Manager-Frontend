@@ -20,7 +20,7 @@ export class ProjectDetailComponent implements OnInit {
 		this.route.params.forEach((params: Params) => {
 			let id = params['id'];
 			this.projectFetcher.getProject(id)
-				.then(project => this.project = project);
+				.subscribe(project => this.project = project);
 		});
 	}
 

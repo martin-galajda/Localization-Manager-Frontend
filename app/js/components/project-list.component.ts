@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectFetcherService } from '../services/project-fetcher.service';
 import { Project } from '../model/entity/Project';
@@ -16,12 +16,15 @@ export class ProjectListComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.showSignInModal = false;
 		this.projects = [];
 		this.getProjects();
 	}
 
 	getProjects(): void {
-		this.projectFetcher.getProjects().then(projects => this.projects = projects);
+		this.projectFetcher.getProjects().subscribe(projects => this.projects = projects,
+			error => console.log(error)
+		);
 	}
 
 	goToDetail(project: Project): void {
@@ -29,6 +32,12 @@ export class ProjectListComponent implements OnInit {
 		this.router.navigate(link);
 	}
 
+	goToAddNewProject(): void {
+		let link = ['/project/add'];
+		this.router.navigate(link);
+	}
+
+	showSignInModal: boolean;
 	projects: Project[];
 	query: string;
 	title: "Web application for management of localization resources.";

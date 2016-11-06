@@ -1,9 +1,16 @@
 <div>
-	<div class="col-md-3 input-filter">
+	<div class="col-md-3 input-filter" [ngClass]="{'transient':showSignInModal}">
 	<input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
 	<i class="glyphicon glyphicon-search"></i>
 	</div>
-<table class="table table-bordered table-striped">
+	<div class="row" [ngClass]="{'transient':showSignInModal}">
+		<div class="col-md-6 pull-right">
+			<button class="btn btn-primary pull-right btn-add-project" (click)="goToAddNewProject()">
+				<i class="glyphicon glyphicon-plus" ></i>Add project
+			</button>
+		</div>
+	</div>
+<table [ngClass]="{'transient':showSignInModal}" class="table table-bordered table-striped">
 	<tr>
 		<th>
 			Project name
@@ -61,7 +68,7 @@
 		<!--
 		<td *ngIf="!project.hidden">{{project.converter.name}}</td>
 	-->
-		<td *ngIf="!project.hidden">{{project.assignee.name}}</td>
+		<td *ngIf="!project.hidden">{{project.assignee ? project.assignee.name : "No assignee"}}</td>
 		<!--
 		<td *ngIf="!project.hidden">{{project.reviewer.name}}</td>
 	-->

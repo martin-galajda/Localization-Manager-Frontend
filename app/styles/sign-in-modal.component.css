@@ -1,0 +1,33 @@
+sign-in-modal .modal, sign-in-modal .modal-dialog, sign-in-modal .modal-content {
+	display: block !important;
+	opacity: 1;
+}
+
+sign-in-modal .modal-body {
+	height: 168px;
+}
+
+sign-in-modal .modal-dialog {
+	margin-top: 105px;
+}
+
+.transient {
+	opacity: 0.3;
+}
+
+.box-gmail {
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.box-gmail p {
+	text-align: center;
+	padding: 5px;
+}
+
+.box-gmail img {
+	width: 200px;
+	height: 100px;
+}

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 	}
 
 	getProjects(): void {
-		this.projectFetcherService.getProjects().then(projects => this.projects = projects);
+		this.projectFetcherService.getProjects().subscribe(projects => this.projects = projects);
 	}
 
 	getSelectedProject(): Project {
@@ -29,6 +29,12 @@ export class AppComponent implements OnInit {
 		}
 	}
 
+	openSignInModal(): void {
+		this.showSignInModal = true;
+		console.log(this);
+	}
+
+	showSignInModal: boolean = false;
 	title = 'Web application for managing localization resources.';
 	version = 'Prototype';
 	projects: Project[] = [];
