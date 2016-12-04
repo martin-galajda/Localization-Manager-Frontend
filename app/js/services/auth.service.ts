@@ -34,13 +34,7 @@ export class AuthService {
     }
 
     googleSignIn() {
-        return this.http.get(AppConfig.GOOGLE_SIGN_IN_URL).map(res => {
-            console.log(res);
-        }).catch(err => {
-            console.log(err);
-
-            return Observable.throw('fail');
-        });
+        window.location.href = AppConfig.GOOGLE_SIGN_IN_URL;
     }
 
     private extractData(res: Response) {
