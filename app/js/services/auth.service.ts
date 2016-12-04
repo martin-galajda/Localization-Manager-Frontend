@@ -33,8 +33,14 @@ export class AuthService {
         });
     }
 
-    static googleSignIn() {
-        window.location.href = AppConfig.GOOGLE_SIGN_IN_URL;
+    googleSignIn() {
+        return this.http.get(AppConfig.GOOGLE_SIGN_IN_URL).map(res => {
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+
+            return Observable.throw('fail');
+        });
     }
 
     private extractData(res: Response) {

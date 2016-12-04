@@ -14,13 +14,14 @@ export class LoginComponent
 {
     constructor(
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private authService: AuthService
     )
     {
 
     }
 
     googleLogin() {
-        AuthService.googleSignIn();
+        this.authService.googleSignIn();
     }
 }
