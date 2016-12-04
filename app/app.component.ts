@@ -4,6 +4,7 @@ import { Project } from './js/model/entity/Project';
 import { ProjectDetailComponent } from './js/components/project-detail.component';
 import { ProjectListComponent } from './js/components/project-list.component'
 import { ProjectFetcherService } from './js/services/project-fetcher.service';
+import {Router} from "@angular/router";
 
 @Component({
 	selector: 'my-app',
@@ -11,7 +12,7 @@ import { ProjectFetcherService } from './js/services/project-fetcher.service';
 })
 
 export class AppComponent implements OnInit {
-	constructor(private projectFetcherService: ProjectFetcherService) {}
+	constructor(private projectFetcherService: ProjectFetcherService, private router: Router) {}
 
 	ngOnInit(): void {
 		this.getProjects();
@@ -30,8 +31,7 @@ export class AppComponent implements OnInit {
 	}
 
 	openSignInModal(): void {
-		this.showSignInModal = true;
-		console.log(this);
+		this.router.navigate(['/login']);
 	}
 
 	showSignInModal: boolean = false;
