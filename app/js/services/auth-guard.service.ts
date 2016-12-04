@@ -18,6 +18,10 @@ export class AuthGuard implements CanActivate {
                 return false;
             }
             return true;
+        }).catch(() => {
+            this.authService.redirectUrl = state.url;
+            this.router.navigate(['/login']);
+            return Observable.of(false);
         });
     }
 }
