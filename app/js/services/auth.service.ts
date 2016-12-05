@@ -2,7 +2,7 @@
  * Created by martin on 12/4/16.
  */
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {Http, Response, RequestOptions, Headers} from '@angular/http';
 import { AppConfig } from '../Constants/AppConfig';
 
 import 'rxjs/Rx';
@@ -22,7 +22,9 @@ export class AuthService {
             });
         }
 
-        return this.http.get(AppConfig.GET_LOGGED_USER_URL)
+        let options = new RequestOptions({withCredentials: true});
+
+        return this.http.get(AppConfig.GET_LOGGED_USER_URL, options)
             .map(this.extractData)
             .catch(this.handleError);
     }
