@@ -2,7 +2,7 @@ import { NgModule }					from '@angular/core';
 import { BrowserModule }			from '@angular/platform-browser';
 import { AppComponent }				from './app.component';
 import { FormsModule } 				from '@angular/forms';
-import { HttpModule, JsonpModule } 	from '@angular/http';
+import {HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}    from '@angular/http';
 
 import { ProjectDetailComponent } 	from './js/components/project-detail.component';
 import { ProjectListComponent } 	from './js/components/project-list.component';
@@ -41,7 +41,11 @@ import { AuthGuard } 				from "./js/services/auth-guard.service";
 	providers: [
 		ProjectFetcherService,
 		AuthService,
-		AuthGuard
+		AuthGuard,
+		{
+			provide: XSRFStrategy,
+			useValue: new CookieXSRFStrategy('csrfToken', 'X-CSRFToken')
+		}
 	],
 	bootstrap: [
 		AppComponent
