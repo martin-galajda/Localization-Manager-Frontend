@@ -41,11 +41,7 @@ import { AuthGuard } 				from "./js/services/auth-guard.service";
 	providers: [
 		ProjectFetcherService,
 		AuthService,
-		AuthGuard,
-		{
-			provide: XSRFStrategy,
-			useValue: new CookieXSRFStrategy('csrfToken', 'X-CSRFToken')
-		}
+		AuthGuard
 	],
 	bootstrap: [
 		AppComponent
