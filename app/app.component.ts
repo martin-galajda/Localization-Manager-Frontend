@@ -5,6 +5,8 @@ import { ProjectDetailComponent } from './js/components/project-detail.component
 import { ProjectListComponent } from './js/components/project-list.component'
 import { ProjectFetcherService } from './js/services/project-fetcher.service';
 import {Router} from "@angular/router";
+import {AuthService} from "./js/services/auth.service";
+import 'rxjs/Rx';
 
 @Component({
 	selector: 'my-app',
@@ -12,15 +14,18 @@ import {Router} from "@angular/router";
 })
 
 export class AppComponent implements OnInit {
-	constructor(private projectFetcherService: ProjectFetcherService, private router: Router) {}
+	constructor(private projectFetcherService: ProjectFetcherService, private router: Router, private authService: AuthService) {}
 
 	ngOnInit(): void {
-		this.getProjects();
+		this.getLoggedUser();
 	}
 
-	getProjects(): void {
-		this.projectFetcherService.getProjects().subscribe(projects => this.projects = projects);
+	getLoggedUser(): void {
+		this.authService.getLoggedUser().subscribe(user => {
+			this.loggedUser = user;
+		});
 	}
+
 
 	getSelectedProject(): Project {
 		if (this.projects && this.projects[0]) {
@@ -37,5 +42,6 @@ export class AppComponent implements OnInit {
 	showSignInModal: boolean = false;
 	title = 'Web application for managing localization resources.';
 	version = 'Prototype';
+	loggedUser: User = null;
 	projects: Project[] = [];
 }

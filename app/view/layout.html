@@ -6,9 +6,7 @@
 			</p>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<button class="show-sign-in-modal-btn btn btn-primary" (click)="openSignInModal()">
-						Sign in
-					</button>
+					Hello, {{ loggedUser ? loggedUser.name : ''}}
 				</li>
 			</ul>
 		</div>
