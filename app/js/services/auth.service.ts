@@ -44,7 +44,7 @@ export class AuthService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({headers: headers, withCredentials: true});
 
-        this.http.get(AppConfig.LOGOUT_URL, options)
+        this.http.get(AppConfig.LOGOUT_URL, options).map(res => {});
     }
 
     private extractData(res: Response) {

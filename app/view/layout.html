@@ -2,14 +2,14 @@
 	<div class="container-fluid">
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<p class="page-heading">
-				{{title}}
+				{{ !loggedUser ? title: ''}}
 			</p>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="greet-user">
-					Hello, {{ loggedUser ? loggedUser.name : ''}}
+					{{ loggedUser ?  'Hello ' + loggedUser.name : ''}}
 				</li>
 				<button class="btn btn-primary" type="button" (click)="logout()">
-					Logout
+					{{ loggedUser ? 'Logout' : '' }}
 				</button>
 			</ul>
 		</div>
