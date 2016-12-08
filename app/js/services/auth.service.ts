@@ -22,7 +22,8 @@ export class AuthService {
             });
         }
 
-        let options = new RequestOptions({withCredentials: true});
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({headers: headers, withCredentials: true});
 
         return this.http.get(AppConfig.GET_LOGGED_USER_URL, options)
             .map(this.extractData)
@@ -41,6 +42,7 @@ export class AuthService {
 
     private extractData(res: Response) {
         this.loggedUser = res.json();
+        console.log('logged user : ', this.loggedUser);
         this.isInitialized = true;
         return this.loggedUser;
     }
