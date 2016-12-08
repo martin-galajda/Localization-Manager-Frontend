@@ -56,3 +56,9 @@ tr:hover {
 tr {
 	transition: border 200ms;
 }
+
+.greet-user {
+	color: #fff;
+	padding: 10px;
+	font-size: 16px;
+}
