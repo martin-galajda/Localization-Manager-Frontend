@@ -39,6 +39,11 @@ export class AppComponent implements OnInit {
 		this.router.navigate(['/login']);
 	}
 
+	logout(): void {
+		this.authService.logout();
+		this.router.navigate(['/login']);
+	}
+
 	showSignInModal: boolean = false;
 	title = 'Web application for managing localization resources.';
 	version = 'Prototype';

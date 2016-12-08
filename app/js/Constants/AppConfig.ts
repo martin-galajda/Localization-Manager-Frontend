@@ -18,4 +18,8 @@ export class AppConfig {
 	public static get GOOGLE_SIGN_IN_URL(): string {
 		return AppConfig.BASE_PATH + 'auth/google';
 	}
+
+	public static get LOGOUT_URL(): string {
+		return AppConfig.BASE_PATH + 'auth/logout';
+	}
 }

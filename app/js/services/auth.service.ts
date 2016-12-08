@@ -40,6 +40,13 @@ export class AuthService {
         window.location.href = AppConfig.GOOGLE_SIGN_IN_URL;
     }
 
+    logout(): void {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({headers: headers, withCredentials: true});
+
+        this.http.get(AppConfig.LOGOUT_URL, options)
+    }
+
     private extractData(res: Response) {
         this.loggedUser = res.json();
         console.log('logged user : ', this.loggedUser);
