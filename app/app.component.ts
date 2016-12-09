@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './js/model/entity/User';
 import { Project } from './js/model/entity/Project';
-import { ProjectDetailComponent } from './js/components/project-detail.component';
-import { ProjectListComponent } from './js/components/project-list.component'
 import { ProjectFetcherService } from './js/services/project-fetcher.service';
-import {Router} from "@angular/router";
-import {AuthService} from "./js/services/auth.service";
+import { Router } from "@angular/router";
+import { AuthService } from "./js/services/auth.service";
 import 'rxjs/Rx';
 
 @Component({
@@ -40,8 +38,10 @@ export class AppComponent implements OnInit {
 	}
 
 	logout(): void {
-		this.authService.logout();
-		this.router.navigate(['/login']);
+		this.authService.logout().map(jsonResponse => {
+			console.log(jsonResponse);
+			this.router.navigate(['/login']);
+		});
 	}
 
 	showSignInModal: boolean = false;

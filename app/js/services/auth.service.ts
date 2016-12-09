@@ -40,11 +40,13 @@ export class AuthService {
         window.location.href = AppConfig.GOOGLE_SIGN_IN_URL;
     }
 
-    logout(): void {
+    logout(): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({headers: headers, withCredentials: true});
 
-        this.http.get(AppConfig.LOGOUT_URL, options).map(res => {});
+        return this.http
+            .get(AppConfig.LOGOUT_URL, options)
+            .map(res => {return res.json(); });
     }
 
     private extractData(res: Response) {
