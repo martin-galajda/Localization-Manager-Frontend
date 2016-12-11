@@ -24,4 +24,6 @@ export class LoginComponent
     googleLogin() {
         this.authService.googleSignIn();
     }
+
+    isLoggedUser: boolean = false;
 }

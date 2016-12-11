@@ -57,8 +57,85 @@ tr {
 	transition: border 200ms;
 }
 
-.greet-user {
-	color: #fff;
+.nav.navbar-nav li {
+	color: #555;
 	padding: 10px;
 	font-size: 16px;
 }
+
+.box-gmail{
+	text-align: center;
+	color: #000;
+	cursor: pointer;
+
+	position: absolute;
+	height: 50px;
+	left: calc(23% - 100px/2); /* width divided by 2*/
+	border: 2px solid white;
+	background-color: #ffffff;
+	width: 300px;
+	border: 1px solid #cccccc;
+}
+
+.login-container {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+.login-navbar {
+	margin: 0;
+	padding: 0;
+}
+
+.sign-in-info {
+	text-align: center;
+	color: #fff;
+	font-size: 32px;
+	padding: 30px;
+}
+
+.login-page {
+	width:100%;
+	height:100%;
+}
+
+.google-img {
+	width: 46px;
+	height: 46px;
+	float: left;
+}
+
+.sign-with-google-paragraph {
+	text-align: center;
+	padding-top: 13px;
+}
+
+.left {
+	width: 50%;
+	float: left;
+	border-right: 5px solid black;
+	height: 100%;
+}.right {
+	width: 50%;
+	float: right;
+}
+
+ .navbar.navbar-inverse {
+	 background-color: #f8f8f8;
+	 border: 1px solid #f8f8f8;
+	 margin: 0;
+	 padding: 0;
+ }
+
+ .heading {
+	 background-color: #eee;
+	 font-size: 32px;
+	 color: #999;
+	 padding: 10px;
+	 text-align: center;
+ }
+
+ .navbar-left li {
+	 border: 1px solid #eee;
+ }
