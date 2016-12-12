@@ -27,4 +27,11 @@ export class ProjectAddComponent
 	}
 
 	model: Project;
+	formats = [
+		{id: 'XML', name:'XML'},
+		{id: 'JSON', name:'JSON'},
+		{id: 'CSV', name:'CSV'},
+		{id: 'po', name:'po'}
+		];
+	disabled: boolean = false;
 }

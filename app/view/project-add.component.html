@@ -30,7 +30,12 @@
 					<label for="name">Resource prefix: </label>
 					<input class="form-control" type="text" name="resource_prefix" id="resource_prefix" [(ngModel)]="model.resourcePrefix" />
 				</div>
-
+				<div class="form-group">
+					<label for="sel1">Select format used by developers:</label>
+					<select class="form-control" id="sel1">
+						<option *ngFor="let item of formats" value="item.id">{{item.name}}</option>
+					</select>
+				</div>
 <!--
 				<div class="form-group">
 					<label for="name">Convert name: </label>

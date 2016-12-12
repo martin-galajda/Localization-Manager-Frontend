@@ -42,7 +42,7 @@ project-detail .panel-default.panel .panel-body img {
 p.page-heading {
 	position: absolute;
 	left: 28%;
-	color: #fff;
+	color: #000;
 	font-size: 32px;
 }
 
@@ -138,4 +138,9 @@ tr {
 
  .navbar-left li {
 	 border: 1px solid #eee;
+	 pointer: cursor;
  }
+
+.navbar-left li:hover {
+	border: 2px solid #eee;
+}

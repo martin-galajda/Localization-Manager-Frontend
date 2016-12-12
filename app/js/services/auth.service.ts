@@ -15,6 +15,7 @@ export class AuthService {
     constructor(private http: Http) { }
 
     getLoggedUser(): Observable<User> {
+
         if (this.isInitialized) {
             return new Observable<User>((observer) => {
                 observer.next(this.loggedUser);
@@ -66,7 +67,11 @@ export class AuthService {
     }
 
     private isInitialized: boolean;
-    private loggedUser: User;
+    private loggedUser: User = {
+        id: '1',
+        name: 'Martin Galajda',
+        teamName: 'Team A'
+    };
 
     redirectUrl: string;
 }
