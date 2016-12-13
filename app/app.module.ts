@@ -10,6 +10,7 @@ import { ProjectEditComponent } 	from './js/components/project-edit.component';
 import { ProjectAddComponent } 		from './js/components/project-add.component';
 import { SignInModalComponent } 	from './js/components/sign-in-modal.component';
 import { LoginComponent } 			from "./js/components/login.component";
+import { ConverterListComponent } 			from "./js/components/converters-list.component";
 
 import { FilterPipe } 				from './js/filters/filter.pipe';
 
@@ -18,6 +19,7 @@ import { routing } 					from './app.routing';
 import { AuthService } 				from "./js/services/auth.service";
 import { ProjectFetcherService } 	from './js/services/project-fetcher.service';
 import { AuthGuard } 				from "./js/services/auth-guard.service";
+import { ConverterFetcherService } 				from "./js/services/converter-fetcher.service";
 
 
 @NgModule({
@@ -35,12 +37,14 @@ import { AuthGuard } 				from "./js/services/auth-guard.service";
 		ProjectEditComponent,
 		ProjectAddComponent,
 		SignInModalComponent,
+		ConverterListComponent,
 		LoginComponent,
 		FilterPipe
 	],
 	providers: [
 		ProjectFetcherService,
 		AuthService,
+		ConverterFetcherService,
 		AuthGuard,
 		{
 			provide: XSRFStrategy,

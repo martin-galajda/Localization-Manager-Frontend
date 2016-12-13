@@ -40,5 +40,4 @@ export class ProjectListComponent implements OnInit {
 	showSignInModal: boolean;
 	projects: Project[];
 	query: string = '';
-	title: "Web application for management of localization resources.";
 }

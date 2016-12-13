@@ -5,14 +5,20 @@ import { ProjectDetailComponent } from './js/components/project-detail.component
 import { ProjectListComponent } from './js/components/project-list.component';
 import { ProjectEditComponent } from './js/components/project-edit.component';
 import { ProjectAddComponent } from './js/components/project-add.component';
-import {AuthGuard} from "./js/services/auth-guard.service";
-import {LoginComponent} from "./js/components/login.component";
+import { ConverterListComponent } from './js/components/converters-list.component';
+import { AuthGuard } from "./js/services/auth-guard.service";
+import { LoginComponent } from "./js/components/login.component";
 
 const appRoutes: Routes = [
 	{
 		path: 'project-list',
 		canActivate: [AuthGuard],
 		component: ProjectListComponent
+	},
+	{
+		path: 'converter-list',
+		canActivate: [AuthGuard],
+		component: ConverterListComponent
 	},
 	{
 		path: 'project/detail/:id',

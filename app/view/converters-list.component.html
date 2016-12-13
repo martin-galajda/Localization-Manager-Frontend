@@ -1,0 +1,39 @@
+<div>
+    <p class="heading">CONVERTERS</p>
+    <div class="col-md-3 input-filter" >
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
+        <i class="glyphicon glyphicon-search"></i>
+    </div>
+    <div class="row">
+        <div class="col-md-6 pull-right">
+            <button class="btn btn-primary pull-right btn-add-project" (click)="goToAddNewConverter()">
+                <i class="glyphicon glyphicon-plus" ></i>Add converter
+            </button>
+        </div>
+    </div>
+    <table  class="table table-bordered table-striped">
+        <tr>
+            <th>
+                Converter name
+            </th>
+            <th>
+                Script
+            </th>
+            <th>
+                Developers format
+            </th>
+
+            <th>
+                Translator format
+            </th>
+
+        </tr>
+
+        <tr *ngFor="let converter of converters | filter:query"  (click)="goToDetail(converter)">
+            <td *ngIf="!converter.hidden">{{converter.name}}</td>
+            <td *ngIf="!converter.hidden">{{converter.script}}</td>
+            <td *ngIf="!converter.hidden">{{converter.inputFormat}}</td>
+            <td *ngIf="!converter.hidden">{{converter.outputFormat}}</td>
+        </tr>
+    </table>
+</div>

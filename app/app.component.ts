@@ -33,6 +33,14 @@ export class AppComponent implements OnInit {
 		}
 	}
 
+	goToProjects(): void {
+		this.router.navigate(['/projects-list']);
+	}
+
+	goToConverters(): void {
+		this.router.navigate(['/converter-list']);
+	}
+
 	openSignInModal(): void {
 		this.router.navigate(['/login']);
 	}

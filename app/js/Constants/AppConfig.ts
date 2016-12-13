@@ -22,4 +22,8 @@ export class AppConfig {
 	public static get LOGOUT_URL(): string {
 		return AppConfig.BASE_PATH + 'auth/logout';
 	}
+
+	public static get CONVERTER_API_ENDPOINT(): string {
+		return AppConfig.BASE_PATH + 'converter';
+	}
 }

@@ -5,8 +5,14 @@
 				{{title}}
 			</p>
 			<ul *ngIf="loggedUser" class="nav navbar-nav navbar-left">
-				<li>
+				<li (click)="goToProjects()">
 					Projects
+				</li>
+				<li ()="goToConverters()">
+					Converters
+				</li>
+				<li>
+					Teams
 				</li>
 			</ul>
 			<ul *ngIf="loggedUser" class="nav navbar-nav navbar-right">
