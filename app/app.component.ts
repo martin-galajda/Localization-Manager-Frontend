@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
 	}
 
 	goToProjects(): void {
-		this.router.navigate(['/projects-list']);
+		this.router.navigate(['/project-list']);
 	}
 
 	goToConverters(): void {
