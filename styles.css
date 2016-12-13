@@ -137,10 +137,9 @@ tr {
  }
 
  .navbar-left li {
-	 border: 1px solid #eee;
-	 pointer: cursor;
+	 border: 1px solid #666;
+	 cursor: pointer;
  }
 
 .navbar-left li:hover {
-	border: 2px solid #eee;
 }
