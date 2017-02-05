@@ -33,7 +33,7 @@ export class ProjectDetailComponent implements OnInit {
 	}
 
 	delete(): void {
-		this.projectFetcher.deleteProject(this.project.id).map(res => {
+		this.projectFetcher.deleteProject(this.project.id).subscribe(res => {
 			console.log(res);
 			this.router.navigate(['project-list']);
 		});
