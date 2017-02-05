@@ -23,8 +23,7 @@ export class ProjectFetcherService {
 	}
 
 	deleteProject(id: string): Observable<any> {
-		return this.http.delete(AppConfig.DELETE_PROJECT_API_ENDPOINT + '/' + id)
-			.map(res => res.json());
+		return this.http.delete(AppConfig.DELETE_PROJECT_API_ENDPOINT + '/' + id);
 	}
 
 	addProject(project: Project): Observable<Project> {
