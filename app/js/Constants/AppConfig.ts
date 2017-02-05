@@ -7,6 +7,10 @@ export class AppConfig {
 		return AppConfig.BASE_PATH + 'projects';
 	}
 
+	public static get DELETE_PROJECT_API_ENDPOINT(): string {
+		return AppConfig.BASE_PATH + 'project';
+	}
+
 	public static get POST_PROJECTS_API_ENDPOINT(): string {
 		return AppConfig.BASE_PATH + 'project';
 	}

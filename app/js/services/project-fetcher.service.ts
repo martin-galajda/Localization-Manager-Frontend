@@ -14,12 +14,17 @@ export class ProjectFetcherService {
 
 	getProjects(): Observable<Project[]> {
 		return this.http.get(AppConfig.GET_PROJECTS_API_ENDPOINT)
-		.map(this.extractData)
+			.map(this.extractData)
 			.catch(this.handleError);
 	}
 
 	getProject(id: string): Observable<Project> {
 		return this.getProjects().map(projects => projects.find(project => project.id === id));
+	}
+
+	deleteProject(id: string): Observable<any> {
+		return this.http.delete(AppConfig.DELETE_PROJECT_API_ENDPOINT + '/' + id)
+			.map(res => res.json());
 	}
 
 	addProject(project: Project): Observable<Project> {

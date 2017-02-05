@@ -32,6 +32,13 @@ export class ProjectDetailComponent implements OnInit {
 		this.router.navigate(['project/edit', this.project.id])
 	}
 
+	delete(): void {
+		this.projectFetcher.deleteProject(this.project.id).map(res => {
+			console.log(res);
+			this.router.navigate(['project-list']);
+		});
+	}
+
 	project: Project = null;
 	title: "Web application for management of localization resources.";
 }
