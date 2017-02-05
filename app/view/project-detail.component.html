@@ -20,11 +20,11 @@
 		</div>
 		<div>
 			<label>Assignee:</label>
-			<p>{{project.assignee.name}}</p>
+			<p>{{project.assignee ? project.assignee.name : ''}}</p>
 		</div>
 		<div>
 			<label>Reviewer:</label>
-			<p>{{project.reviewer.name}}</p>
+			<p>{{project.reviewer ? project.reviewer.name : ''}}</p>
 		</div>
 		<div>
 			<label>GitUrl:</label>
