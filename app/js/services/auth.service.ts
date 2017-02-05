@@ -47,7 +47,7 @@ export class AuthService {
 
         return this.http
             .get(AppConfig.LOGOUT_URL, options)
-            .map(res => {return res.json(); });
+            .map(res => res);
     }
 
     private extractData(res: Response) {
