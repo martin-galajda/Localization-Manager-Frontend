@@ -41,6 +41,10 @@ export class AppComponent implements OnInit {
 		this.router.navigate(['/converter-list']);
 	}
 
+	goToUsers(): void {
+		this.router.navigate(['/user-list']);
+	}
+
 	openSignInModal(): void {
 		this.router.navigate(['/login']);
 	}

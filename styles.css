@@ -49,8 +49,10 @@ p.page-heading {
 td {
 	cursor: pointer;
 }
-tr:hover {
-	border: 2px solid #ccc;
+
+tr:not(:first-child):hover {
+	border: 1px solid #ccc;
+	outline: 1px solid #333;
 }
 
 tr {

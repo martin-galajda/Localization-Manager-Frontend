@@ -57,12 +57,12 @@
 
 	<tr *ngFor="let project of projects | filter:query"  (click)="goToDetail(project)">
 		<td *ngIf="!project.hidden">{{project.name}}</td>
-		<td *ngIf="!project.hidden">{{project.gitUrl}}</td>
+		<td *ngIf="!project.hidden">{{project.git}}</td>
 		<!--
 
 		<td *ngIf="!project.hidden">{{project.stash_id}}</td>
 	-->
-		<td *ngIf="!project.hidden">{{project.pathToResources}}</td>
+		<td *ngIf="!project.hidden">{{project.resourcePath}}</td>
 		<!--
 		<td *ngIf="!project.hidden">{{project.resource_prefix}}</td>
 	-->

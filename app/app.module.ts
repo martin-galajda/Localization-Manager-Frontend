@@ -11,6 +11,8 @@ import { ProjectAddComponent } 		from './js/components/project-add.component';
 import { SignInModalComponent } 	from './js/components/sign-in-modal.component';
 import { LoginComponent } 			from "./js/components/login.component";
 import { ConverterListComponent } 			from "./js/components/converters-list.component";
+import { ConverterAddComponent } 			from "./js/components/converter-add.component";
+import { UserListComponent } 			from "./js/components/user-list.component";
 
 import { FilterPipe } 				from './js/filters/filter.pipe';
 
@@ -19,7 +21,10 @@ import { routing } 					from './app.routing';
 import { AuthService } 				from "./js/services/auth.service";
 import { ProjectFetcherService } 	from './js/services/project-fetcher.service';
 import { AuthGuard } 				from "./js/services/auth-guard.service";
-import { ConverterFetcherService } 				from "./js/services/converter-fetcher.service";
+import { ConverterService } 				from "./js/services/converter.service";
+import { UserService } 				from "./js/services/user.service";
+
+
 
 
 @NgModule({
@@ -38,13 +43,16 @@ import { ConverterFetcherService } 				from "./js/services/converter-fetcher.ser
 		ProjectAddComponent,
 		SignInModalComponent,
 		ConverterListComponent,
+		ConverterAddComponent,
 		LoginComponent,
+		UserListComponent,
 		FilterPipe
 	],
 	providers: [
 		ProjectFetcherService,
 		AuthService,
-		ConverterFetcherService,
+		ConverterService,
+		UserService,
 		AuthGuard,
 		{
 			provide: XSRFStrategy,

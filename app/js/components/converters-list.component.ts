@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ConverterFetcherService } from '../services/converter-fetcher.service';
+import { ConverterService } from '../services/converter.service';
 import { Converter } from '../model/entity/Converter';
 
 @Component({
@@ -10,7 +10,7 @@ import { Converter } from '../model/entity/Converter';
 
 export class ConverterListComponent implements OnInit {
     constructor(
-        private converterFetcher: ConverterFetcherService,
+        private converterFetcher: ConverterService,
         private router: Router) {
     }
 

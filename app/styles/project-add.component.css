@@ -1,0 +1,10 @@
+.project-branch .glyphicon-remove {
+    cursor: pointer;
+    top: 3px;
+}
+
+
+.project-branch {
+    margin: 10px;
+    margin-left: 0px;
+}

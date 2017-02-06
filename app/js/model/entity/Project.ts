@@ -5,12 +5,11 @@ export class Project {
 	id: string;
 	name: string;
 	assignee: User;
-	reviewer: User;
+	approval: User;
+	projectKey: String;
+	syncVersions: boolean;
+	branches: String[] = [];
 	converter: Converter;
-	description: string;
-	gitUrl: string;
-	stashId: string;
-	format: string;
-	pathToResources: string;
-	resourcePrefix: string;
+	git: string;
+	resourcePath: string;
 }

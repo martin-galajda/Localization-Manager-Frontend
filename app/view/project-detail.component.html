@@ -23,24 +23,21 @@
 			<p>{{project.assignee ? project.assignee.name : ''}}</p>
 		</div>
 		<div>
-			<label>Reviewer:</label>
-			<p>{{project.reviewer ? project.reviewer.name : ''}}</p>
+			<label>Approval:</label>
+			<p>{{project.approval ? project.approval.name : ''}}</p>
 		</div>
 		<div>
-			<label>GitUrl:</label>
-			<p>{{project.gitUrl}}</p>
+			<label>Git url:</label>
+			<p>{{project.git}}</p>
 		</div>
-		<div>
-			<label>Stash ID:</label>
-			<p>{{project.stashId}}</p>
-		</div>
+
 		<div>
 			<label>Resource path:</label>
-			<p>{{project.pathToResources}}</p>
+			<p>{{project.resourcePath}}</p>
 		</div>
 		<div>
-			<label>Resource prefix: </label>
-			<p>{{project.resourcePrefix}}</p>
+			<label>Project branches: </label>
+			<p>{{project.branches.join(', ')}}</p>
 		</div>
 		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUFV0KKB7RflIAz5hX0N2V2BURxTlLuQ8J7pBD2lS7zwkWeYaZWKHQdz4"/>
 	</div>

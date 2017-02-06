@@ -1,0 +1,24 @@
+<div>
+    <p class="heading">USERS</p>
+    <div class="col-md-3 input-filter" >
+        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
+        <i class="glyphicon glyphicon-search"></i>
+    </div>
+
+    <table  class="table table-bordered table-striped">
+        <tr>
+            <th>
+                User name
+            </th>
+            <th>
+                Assignable
+            </th>
+
+        </tr>
+
+        <tr *ngFor="let user of users | filter:query">
+            <td *ngIf="!user.hidden">{{user.name}}</td>
+            <td *ngIf="!user.hidden">{{user.isAssignable ? 'Yes': 'No'}}</td>
+        </tr>
+    </table>
+</div>

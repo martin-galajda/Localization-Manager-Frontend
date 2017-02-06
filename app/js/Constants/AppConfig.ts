@@ -30,4 +30,8 @@ export class AppConfig {
 	public static get CONVERTER_API_ENDPOINT(): string {
 		return AppConfig.BASE_PATH + 'converter';
 	}
+
+	public static get USER_API_ENDPOINT(): string {
+		return AppConfig.BASE_PATH + 'user';
+	}
 }

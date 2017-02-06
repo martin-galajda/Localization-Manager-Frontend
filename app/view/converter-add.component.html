@@ -1,0 +1,55 @@
+<div class="container" >
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary" (click)="goBack()">
+                <i class="glyphicon glyphicon-arrow-left"></i>
+                Back
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form *ngIf="model">
+                <div class="form-group">
+                    <label for="name">Converter name: </label>
+                    <input class="form-control" type="text" name="name" id="name" [(ngModel)]="model.name" />
+                </div>
+                <div class="form-group">
+                    <label for="converToXliffInput">Enter convert to xliff scripts:</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="converToXliffInput" id="converToXliffInput" [(ngModel)]="convertToXliffInput" />
+                        <span class="input-group-btn">
+							<button class="btn btn-primary" (click)="addConvertToXliff()">
+								<i class="fa fa-plus"></i>Add
+							</button>
+						</span>
+                    </div>
+                    <div class="project-branch" *ngFor="let script of model.convertToXliff; let i = index">
+                        {{script}}
+                        <i class="glyphicon glyphicon-remove" (click)="removeConvertToXliff(i)"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="convertFromXliffInput">Enter convert from xliff scripts:</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="convertFromXliffInput" id="convertFromXliffInput" [(ngModel)]="convertFromXliffInput" />
+                        <span class="input-group-btn">
+							<button class="btn btn-primary" (click)="addConvertFromXliff()">
+								<i class="fa fa-plus"></i>Add
+							</button>
+						</span>
+                    </div>
+                    <div class="project-branch" *ngFor="let script of model.convertFromXliff; let i = index">
+                        {{script}}
+                        <i class="glyphicon glyphicon-remove" (click)="removeConvertFromXliff(i)"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" (click)="addConverter()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -17,23 +17,18 @@
                 Converter name
             </th>
             <th>
-                Script
+                To xliff scripts
             </th>
             <th>
-                Developers format
-            </th>
-
-            <th>
-                Translator format
+                From xliff scripts
             </th>
 
         </tr>
 
         <tr *ngFor="let converter of converters | filter:query"  (click)="goToDetail(converter)">
             <td *ngIf="!converter.hidden">{{converter.name}}</td>
-            <td *ngIf="!converter.hidden">{{converter.script}}</td>
-            <td *ngIf="!converter.hidden">{{converter.inputFormat}}</td>
-            <td *ngIf="!converter.hidden">{{converter.outputFormat}}</td>
+            <td *ngIf="!converter.hidden">{{converter.convertToXliff.join(', ')}}</td>
+            <td *ngIf="!converter.hidden">{{converter.convertFromXliff.join(', ')}}</td>
         </tr>
     </table>
 </div>

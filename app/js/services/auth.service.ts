@@ -67,11 +67,7 @@ export class AuthService {
     }
 
     private isInitialized: boolean;
-    private loggedUser: User = {
-        id: '1',
-        name: 'Martin Galajda',
-        teamName: 'Team A'
-    };
+    private loggedUser: User = null;
 
     redirectUrl: string;
 }

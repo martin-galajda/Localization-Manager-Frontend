@@ -19,6 +19,7 @@ export class ProjectEditComponent implements OnInit {
 	ngOnInit(): void {
 		this.route.params.forEach((params: Params) => {
 			let id = params['id'];
+			this.id = id;
 			this.projectFetcher.getProject(id)
 				.subscribe(project => this.model = project);
 		});
@@ -28,6 +29,25 @@ export class ProjectEditComponent implements OnInit {
 		this.router.navigate(['project-list']);
 	}
 
+	addBranch(): void {
+		this.model.branches.push(this.tmpBranchesInput);
+		this.tmpBranchesInput = "";
+	}
+
+	removeBranch(i : number): void {
+		this.model.branches.splice(i, 1);
+	}
+
+	updateProject(): void {
+		this.projectFetcher
+			.addProject(this.model)
+			.subscribe(
+				() => this.router.navigate(['project/detail', this.id]),
+				(err) => console.log(err)
+			);
+	}
+
 	model: Project = null;
-	title: "Web application for management of localization resources.";
+	tmpBranchesInput: string = "";
+	id: string;
 }
