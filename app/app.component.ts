@@ -52,6 +52,7 @@ export class AppComponent implements OnInit {
 	logout(): void {
 		this.authService.logout().subscribe(jsonResponse => {
 			console.log(jsonResponse);
+			this.loggedUser = null;
 			this.router.navigate(['/login']);
 		});
 	}
