@@ -10,6 +10,9 @@ import { ConverterAddComponent } from './js/components/converter-add.component';
 import { AuthGuard } from "./js/services/auth-guard.service";
 import { LoginComponent } from "./js/components/login.component";
 import { UserListComponent } from "./js/components/user-list.component";
+import { ConverterDetailComponent } from "./js/components/converter-detail.component";
+import { ConverterEditComponent } from "./js/components/converter-edit.component";
+import {AdminGuard} from "./js/services/admin-guard.service";
 
 const appRoutes: Routes = [
 	{
@@ -28,6 +31,16 @@ const appRoutes: Routes = [
 		component: ConverterAddComponent
 	},
 	{
+		path: 'converter/detail/:id',
+		canActivate: [AuthGuard],
+		component: ConverterDetailComponent
+	},
+	{
+		path: 'converter/edit/:id',
+		canActivate: [AuthGuard],
+		component: ConverterEditComponent
+	},
+	{
 		path: 'project/detail/:id',
 		canActivate: [AuthGuard],
 		component: ProjectDetailComponent
@@ -39,7 +52,7 @@ const appRoutes: Routes = [
 	},
 	{
 		path: 'user-list',
-		canActivate: [AuthGuard],
+		canActivate: [AdminGuard],
 		component: UserListComponent
 	},
 	{
@@ -57,6 +70,6 @@ const appRoutes: Routes = [
 		canActivate: [AuthGuard],
 		component: ProjectEditComponent
 	}
-]
+];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

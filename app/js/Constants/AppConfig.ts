@@ -4,7 +4,7 @@ export class AppConfig {
 	}
 
 	public static get GET_PROJECTS_API_ENDPOINT(): string {
-		return AppConfig.BASE_PATH + 'projects';
+		return AppConfig.BASE_PATH + 'project/list';
 	}
 
 	public static get DELETE_PROJECT_API_ENDPOINT(): string {

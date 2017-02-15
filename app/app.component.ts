@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './js/model/entity/User';
 import { Project } from './js/model/entity/Project';
 import { ProjectFetcherService } from './js/services/project-fetcher.service';
-import { Router } from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import { AuthService } from "./js/services/auth.service";
 import 'rxjs/Rx';
 
@@ -12,9 +12,18 @@ import 'rxjs/Rx';
 })
 
 export class AppComponent implements OnInit {
-	constructor(private projectFetcherService: ProjectFetcherService, private router: Router, private authService: AuthService) {}
+	constructor(
+		private activatedRoute: ActivatedRoute,
+		private router: Router,
+		private authService: AuthService
+	) {}
 
 	ngOnInit(): void {
+		this.activatedRoute.url.subscribe(currentUrl => {
+			this.routeUrl = currentUrl.join('/');
+			console.log(currentUrl);
+			console.log(this.routeUrl);
+		});
 		this.getLoggedUser();
 	}
 
@@ -61,5 +70,6 @@ export class AppComponent implements OnInit {
 	title = 'Web application for managing localization resources.';
 	version = 'Prototype';
 	loggedUser: User = null;
+	routeUrl : String;
 	projects: Project[] = [];
 }

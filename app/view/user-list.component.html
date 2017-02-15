@@ -13,12 +13,23 @@
             <th>
                 Assignable
             </th>
-
+            <th>
+                Action
+            </th>
         </tr>
 
         <tr *ngFor="let user of users | filter:query">
             <td *ngIf="!user.hidden">{{user.name}}</td>
             <td *ngIf="!user.hidden">{{user.isAssignable ? 'Yes': 'No'}}</td>
+            <td>
+                <button type="button"
+                        class="btn btn-primary"
+                        style="width: 100%"
+                        (click)="makeAssignable(user.id, !user.isAssignable)"
+                >
+                    {{user.isAssignable ? "Make unassignable" : "Make assignable"}}
+                </button>
+            </td>
         </tr>
     </table>
 </div>

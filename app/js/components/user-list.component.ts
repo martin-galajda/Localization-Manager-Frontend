@@ -27,6 +27,26 @@ export class UserListComponent implements OnInit {
         );
     }
 
+    makeAssignable(userId: string, setIsAssignable: boolean): void {
+        console.log(userId);
+        console.log(setIsAssignable);
+        this.userService
+            .updateUser(userId, setIsAssignable)
+            .subscribe(
+                () => {
+                    this.users = this.users.map(user => {
+                        if (user.id === userId) {
+                            user.isAssignable = setIsAssignable;
+                        }
+                        return user;
+                    });
+                },
+                (err) => {
+                    console.error(err);
+                }
+        );
+    }
+
     users: User[];
     query: string = '';
 }

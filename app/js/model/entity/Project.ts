@@ -12,4 +12,7 @@ export class Project {
 	converter: Converter;
 	git: string;
 	resourcePath: string;
+	hashMapIdentifier: string;
+	status: string;
+	wordCount: number;
 }

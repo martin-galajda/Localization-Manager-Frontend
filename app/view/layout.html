@@ -1,18 +1,36 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" *ngIf="loggedUser">
 	<div class="container">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		<!--
+				<a class="navbar-brand" href="#">Brand</a>
+		-->
+		</div>
+
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<p *ngIf="!loggedUser" class="page-heading">
-				{{title}}
-			</p>
 			<ul *ngIf="loggedUser" class="nav navbar-nav navbar-left">
-				<li (click)="goToProjects()">
-					Projects
+				<li>
+					<a routerLink="/project-list" routerLinkActive="active">
+						Projects
+					</a>
 				</li>
-				<li (click)="goToConverters()">
-					Converters
+
+				<li>
+					<a routerLink="/converter-list" routerLinkActive="active">
+						Converters
+					</a>
 				</li>
-				<li (click)="goToUsers()">
-					Users
+
+				<li *ngIf="loggedUser.role === 'ADMIN'">
+					<a routerLink="/user-list" routerLinkActive="active">
+						Users
+					</a>
 				</li>
 			</ul>
 			<ul *ngIf="loggedUser" class="nav navbar-nav navbar-right">
@@ -20,7 +38,7 @@
 				<li class="greet-user">
 					{{ loggedUser.name}}
 				</li>
-				<button  class="btn btn-primary" type="button" (click)="logout()">
+				<button  class="btn btn-danger" type="button" (click)="logout()">
 					Logout
 				</button>
 			</ul>

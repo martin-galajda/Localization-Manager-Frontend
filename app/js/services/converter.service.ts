@@ -30,6 +30,21 @@ export class ConverterService {
             .catch(this.handleError);
     }
 
+    deleteConverter(id: string): Observable<Converter> {
+        return this.http.delete(AppConfig.CONVERTER_API_ENDPOINT + '/' + id)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    updateConverter(converter: Converter): Observable<Converter> {
+        let headers = new Headers({ 'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.post(AppConfig.CONVERTER_API_ENDPOINT + '/' + converter.id, converter, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body || { };

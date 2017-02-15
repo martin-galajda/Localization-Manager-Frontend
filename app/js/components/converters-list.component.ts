@@ -26,7 +26,7 @@ export class ConverterListComponent implements OnInit {
     }
 
     goToDetail(converter: Converter): void {
-        let link = ['/project/detail', converter.id];
+        let link = ['/converter/detail', converter.id];
         this.router.navigate(link);
     }
 

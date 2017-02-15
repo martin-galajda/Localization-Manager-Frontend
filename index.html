@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="app/styles/sign-in-modal.component.css">
 	<link rel="stylesheet" href="app/styles/project-add.component.css">
     <!-- 1. Load libraries -->
-	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
      <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
@@ -29,11 +30,12 @@
   <body>
     <my-app>
         <div class="row">
-            <div class="col-md-2 cold-md-offset-5">
-                <i class="fa fa-spinner"></i>
+            <div class="col-md-2 col-md-offset-5" style="text-align: center; font-size: 24px; vertical-align: middle;">
+                <i class="fa fa-spinner fa-pulse"></i>
                 Loading...
             </div>
         </div>
     </my-app>
+
   </body>
 </html>

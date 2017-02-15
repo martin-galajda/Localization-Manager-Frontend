@@ -24,7 +24,7 @@ export class ProjectAddComponent implements OnInit
 
 	ngOnInit(): void {
 		this.userService.getUsers().subscribe(
-			users => this.assignableUsers = users,
+			users => this.assignableUsers = users.filter(user => user.isAssignable),
 			err	  => console.log(err)
 		);
 	}
