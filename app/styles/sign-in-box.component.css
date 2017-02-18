@@ -1,0 +1,40 @@
+.sign-in-box {
+    width: 600px;
+    text-align: center;
+    margin: auto;
+    background-color: #fff;
+    height: 200px;
+    margin-top: 60px;
+    border: 3px solid #000;
+}
+
+.sign-in-info {
+    text-align: center;
+    color: #000;
+    font-size: 32px;
+    padding: 30px;
+}
+
+.box-gmail{
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+
+    height: 50px;
+    background-color: #ffffff;
+    width: 300px;
+    border: 1px solid #cccccc;
+    margin: auto;
+}
+
+.google-img {
+    width: 46px;
+    height: 46px;
+    float: left;
+}
+
+.sign-with-google-paragraph {
+    text-align: center;
+    padding-top: 13px;
+    color: #000;
+}

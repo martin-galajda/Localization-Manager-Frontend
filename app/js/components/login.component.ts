@@ -1,12 +1,27 @@
 /**
  * Created by martin on 12/4/16.
  */
-import {Component, Injectable} from '@angular/core';
+import {Component, Injectable, trigger, state, transition, style, animate} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import {AuthService} from "../services/auth.service";
+
 @Component({
     selector: 'login',
-    templateUrl: 'app/view/login.component.html'
+    templateUrl: 'app/view/login.component.html',
+    styleUrls: ['app/styles/login.component.css'],
+    animations: [
+        trigger('animateOpacity', [
+            state('fullOpacity', style({
+                'opacity': '1'
+            })),
+            transition('void => *', [
+                style({
+                    'opacity': '0.3',
+                }),
+                animate('500ms 200ms linear')
+            ]),
+        ])
+    ]
 })
 
 @Injectable()

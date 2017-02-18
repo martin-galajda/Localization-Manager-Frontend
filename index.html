@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <link rel="shortcut icon" href="/app/images/favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
 
@@ -29,13 +30,19 @@
   <!-- 3. Display the application -->
   <body>
     <my-app>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-5" style="text-align: center; font-size: 24px; vertical-align: middle;">
+        <div>
+            <div class="col-md-2 col-md-offset-5 loading-spinner-wrapper">
                 <i class="fa fa-spinner fa-pulse"></i>
                 Loading...
             </div>
+            <div class="backstretch-loading">
+                <img src="/app/images/bigimg.jpg" />
+            </div>
         </div>
     </my-app>
+
+
+
 
   </body>
 </html>

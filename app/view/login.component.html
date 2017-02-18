@@ -1,16 +1,14 @@
-<div class="login-page">
+<div class="login-page" [@animateOpacity]="'fullOpacity'">
     <div class="sign-in-wrapper">
 
-        <div class="sign-in-box">
-            <p class="sign-in-info">Please sign in to continue.</p>
-            <div class="box-gmail" (click)="googleLogin()">
-                <img src="./app/images/btn_google_light_normal_ios.svg" class="google-img"/>
-                <p class="sign-with-google-paragraph">Sign in with Google</p>
-            </div>
-        </div>
+        <sign-in-box
+                (onGoogleSignInClicked)="googleLogin() "
+        >
+
+        </sign-in-box>
 
     </div>
     <div class="backstretch">
-        <img src="../../app/images/translate-background.jpg" />
+        <img src="../../app/images/bigimg.jpg" />
     </div>
 </div>

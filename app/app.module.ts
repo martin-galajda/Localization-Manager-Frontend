@@ -15,6 +15,7 @@ import { ConverterListComponent } 			from "./js/components/converters-list.compo
 import { ConverterAddComponent } 			from "./js/components/converter-add.component";
 import { ConverterDetailComponent } 			from "./js/components/converter-detail.component";
 import { ConverterEditComponent } 			from "./js/components/converter-edit.component";
+import { SignInBoxComponent } from "./js/components/sign-in-box.component";
 
 import { FilterPipe } 				from './js/filters/filter.pipe';
 
@@ -51,7 +52,8 @@ import { AdminGuard } from "./js/services/admin-guard.service";
 		ConverterEditComponent,
 		LoginComponent,
 		UserListComponent,
-		FilterPipe
+		FilterPipe,
+		SignInBoxComponent
 	],
 	providers: [
 		ProjectFetcherService,
