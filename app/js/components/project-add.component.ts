@@ -1,6 +1,6 @@
 import { Project } from '../model/entity/Project';
 import {Component, OnInit} from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ProjectFetcherService } from '../services/project-fetcher.service';
 import {UserService} from "../services/user.service";
 import {User} from "../model/entity/User";
@@ -14,7 +14,6 @@ export class ProjectAddComponent implements OnInit
 
 	constructor(
 		private router: Router,
-		private route: ActivatedRoute,
 		private userService: UserService,
 		private projectService: ProjectFetcherService)
 		{

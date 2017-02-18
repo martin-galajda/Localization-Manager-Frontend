@@ -151,9 +151,11 @@ tr {
 
 .backstretch-loading img {
 	height: 100%;
-	width: 100vw;
+	background-size: cover;
 	z-index: -10;
 	opacity: 0.3;
+	position: absolute;
+	left: -300px;
 }
 
 .loading-spinner-wrapper {

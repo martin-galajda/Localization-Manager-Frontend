@@ -45,6 +45,20 @@
 						<i class="glyphicon glyphicon-remove" (click)="removeBranch(i)"></i>
 					</div>
 				</div>
+
+				<div class="form-group">
+					<label for="assigneeSelect">
+						Selected assignee: {{selectedUser}}
+					</label>
+					<select
+							class="form-control"
+							id="assigneeSelect" #selectValue (change)="onAssigneeSelected(selectValue.value)">
+						<option *ngFor="let user of assignableUsers" [value]="user.id">
+							{{user.name}}
+						</option>
+					</select>
+				</div>
+
 				<div class="form-group">
 					<button type="button" class="btn btn-primary" (click)="updateProject()">Submit</button>
 				</div>
