@@ -1,37 +1,48 @@
-<div>
-    <!--
-    <p class="heading">USERS</p>
-    -->
-    <div class="col-md-3 input-filter" >
-        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
-        <i class="glyphicon glyphicon-search"></i>
+<div class="list-table-container">
+
+    <div class="row page-title-row ">
+        <div class="col-md-4 page-title">
+            Users
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 input-filter" >
+            <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
+            <i class="glyphicon glyphicon-search"></i>
+        </div>
+    </div>
+    <div class="row">
+        <table  class="table table-bordered table-striped list-table">
+            <thead>
+            <tr>
+                <th>
+                    User name
+                </th>
+                <th>
+                    Assignable
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let user of users | filter:query">
+                <td *ngIf="!user.hidden">{{user.name}}</td>
+                <td *ngIf="!user.hidden">{{user.isAssignable ? 'Yes': 'No'}}</td>
+                <td>
+                    <button type="button"
+                            class="btn btn-primary"
+                            style="width: 100%"
+                            (click)="makeAssignable(user.id, !user.isAssignable)"
+                    >
+                        {{user.isAssignable ? "Make unassignable" : "Make assignable"}}
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
-    <table  class="table table-bordered table-striped">
-        <tr>
-            <th>
-                User name
-            </th>
-            <th>
-                Assignable
-            </th>
-            <th>
-                Action
-            </th>
-        </tr>
-
-        <tr *ngFor="let user of users | filter:query">
-            <td *ngIf="!user.hidden">{{user.name}}</td>
-            <td *ngIf="!user.hidden">{{user.isAssignable ? 'Yes': 'No'}}</td>
-            <td>
-                <button type="button"
-                        class="btn btn-primary"
-                        style="width: 100%"
-                        (click)="makeAssignable(user.id, !user.isAssignable)"
-                >
-                    {{user.isAssignable ? "Make unassignable" : "Make assignable"}}
-                </button>
-            </td>
-        </tr>
-    </table>
 </div>

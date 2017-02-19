@@ -7,8 +7,9 @@ import { AuthService } from "./js/services/auth.service";
 import 'rxjs/Rx';
 
 @Component({
-	selector: 'my-app',
-	templateUrl: 'app/view/layout.html'
+	selector: 'app',
+	templateUrl: 'app/view/app.component.html',
+	styleUrls: ['app/styles/app.component.css']
 })
 
 export class AppComponent implements OnInit {
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
 	getLoggedUser(): void {
 		this.authService.getLoggedUser().subscribe(user => {
 			this.loggedUser = user;
+			this.isLoggedUser = user !== null && user !== undefined;
 		});
 	}
 
@@ -70,6 +72,7 @@ export class AppComponent implements OnInit {
 	title = 'Web application for managing localization resources.';
 	version = 'Prototype';
 	loggedUser: User = null;
+	isLoggedUser: boolean = false;
 	routeUrl : String;
 	projects: Project[] = [];
 }

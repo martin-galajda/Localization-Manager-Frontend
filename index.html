@@ -25,14 +25,12 @@
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script>
-        $.backstretch("http://localhost:3000/app/images/bigimg.jpg");
-
         System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
   <!-- 3. Display the application -->
-  <body style="overflow: hidden">
-    <my-app>
+  <body style="overflow-x: hidden">
+    <app>
         <div>
             <div class="col-md-2 col-md-offset-5 loading-spinner-wrapper">
                 <i class="fa fa-spinner fa-pulse"></i>
@@ -42,7 +40,7 @@
                 <img src="/app/images/bigimg.jpg" />
             </div>
         </div>
-    </my-app>
+    </app>
 
 
     <!--

@@ -1,3 +1,4 @@
+<!--
 <nav class="navbar navbar-inverse" *ngIf="loggedUser">
 	<div class="container">
 
@@ -10,7 +11,7 @@
 			</button>
 		<!--
 				<a class="navbar-brand" href="#">Brand</a>
-		-->
+
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,6 +47,55 @@
 	</div>
 </nav>
 
-<div class="container" [ngClass]="{'login-container': !isLoggedUser}">
-	<router-outlet></router-outlet>
+<div *ngIf="!loggedUser" [ngClass]="{'login-container': !isLoggedUser}">
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
+</div>
+
+
+-->
+<div id="wrapper" [ngClass]="{'login-container': isLoggedUser === false}">
+
+	<div id="sidebar-wrapper" *ngIf="loggedUser">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand">
+				<a href="#">
+					Translation Manager
+				</a>
+			</li>
+			<li>
+				<a routerLink="/project-list" routerLinkActive="active">
+					Projects
+				</a>
+			</li>
+
+			<li>
+				<a routerLink="/converter-list" routerLinkActive="active">
+					Converters
+				</a>
+			</li>
+
+			<li *ngIf="loggedUser.role === 'ADMIN'">
+				<a routerLink="/user-list" routerLinkActive="active">
+					Users
+				</a>
+			</li>
+		</ul>
+		<div id="sidebar-bottom-user">
+			<div class="img-container">
+				<img [src]="loggedUser.pictureUrl" />
+			</div>
+			<span>
+				{{loggedUser.name}}
+				<i class="fa fa-power-off" aria-hidden="true" (click)="logout()"></i>
+			</span>
+		</div>
+	</div>
+
+	<div id="page-content-wrapper">
+		<div class="container-fluid">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
 </div>

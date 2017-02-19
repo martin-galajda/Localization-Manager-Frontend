@@ -38,3 +38,11 @@
     padding-top: 13px;
     color: #000;
 }
+
+.box-gmail:hover {
+    border-bottom: 1px solid #000;
+}
+
+.box-gmail {
+    transition: all 0.5s ease;
+}

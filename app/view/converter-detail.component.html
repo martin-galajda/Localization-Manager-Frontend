@@ -1,30 +1,37 @@
-<button class="btn btn-primary" (click)="goBack()">
-    <i class="glyphicon glyphicon-arrow-left"></i> Back
-</button>
-<button class="btn btn-success" (click)="edit()">
-    Edit
-</button>
+<div class="row">
+    <div class="action-edit-buttons">
+        <button class="btn btn-primary" (click)="goBack()">
+            <i class="glyphicon glyphicon-arrow-left"></i> Back
+        </button>
+        <button class="btn btn-success" (click)="edit()">
+            Edit
+        </button>
 
-<button class="btn btn-danger" (click)="delete()">
-    Delete
-</button>
-<div *ngIf="converter" class="panel panel-default">
-    <div class="panel-body">
-        <div>
-            <label>Converter Id:</label>
-            <p>{{converter.id}}</p>
-        </div>
-        <div>
-            <label>Converter name:</label>
-            <p>{{converter.name}}</p>
-        </div>
-        <div>
-            <label>Transform from xliff instructions:</label>
-            <p>{{converter.convertFromXliff.join(', ')}}</p>
-        </div>
-        <div>
-            <label>Transform to xliff instructions:</label>
-            <p>{{converter.convertToXliff.join(', ')}}</p>
+        <button class="btn btn-danger" (click)="delete()">
+            Delete
+        </button>
+    </div>
+
+    <div *ngIf="converter" class="panel panel-default">
+        <div class="panel-body">
+            <div>
+                <label>Converter Id:</label>
+                <p>{{converter.id}}</p>
+            </div>
+            <div>
+                <label>Converter name:</label>
+                <p>{{converter.name}}</p>
+            </div>
+            <div>
+                <label>Transform from xliff instructions:</label>
+                <p>{{converter.convertFromXliff.join(', ')}}</p>
+            </div>
+            <div>
+                <label>Transform to xliff instructions:</label>
+                <p>{{converter.convertToXliff.join(', ')}}</p>
+            </div>
         </div>
     </div>
+
 </div>
+

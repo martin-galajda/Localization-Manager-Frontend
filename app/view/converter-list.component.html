@@ -1,36 +1,46 @@
-<div>
-    <!--
-    <p class="heading">CONVERTERS</p>
-    -->
-    <div class="col-md-3 input-filter" >
-        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
-        <i class="glyphicon glyphicon-search"></i>
-    </div>
-    <div class="row">
+<div class="list-table-container">
+    <div class="row page-title-row ">
+        <div class="col-md-4 page-title">
+            Converters
+        </div>
         <div class="col-md-6 pull-right">
-            <button class="btn btn-primary pull-right btn-add-project" (click)="goToAddNewConverter()">
-                <i class="glyphicon glyphicon-plus" ></i>Add converter
+            <button class="btn pull-right btn-add-project" (click)="goToAddNewConverter()">
+                Create Converter
             </button>
         </div>
     </div>
-    <table  class="table table-bordered table-striped">
-        <tr>
-            <th>
-                Converter name
-            </th>
-            <th>
-                To xliff scripts
-            </th>
-            <th>
-                From xliff scripts
-            </th>
+    <div class="row">
+        <div class="col-md-3 input-filter" >
+            <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
+            <i class="glyphicon glyphicon-search"></i>
+        </div>
+    </div>
 
-        </tr>
+    <div class="row">
+        <table  class="table table-bordered table-striped list-table">
+            <thead>
+            <tr>
+                <th>
+                    Converter name
+                </th>
+                <th>
+                    To xliff scripts
+                </th>
+                <th>
+                    From xliff scripts
+                </th>
 
-        <tr *ngFor="let converter of converters | filter:query"  (click)="goToDetail(converter)">
-            <td *ngIf="!converter.hidden">{{converter.name}}</td>
-            <td *ngIf="!converter.hidden">{{converter.convertToXliff.join(', ')}}</td>
-            <td *ngIf="!converter.hidden">{{converter.convertFromXliff.join(', ')}}</td>
-        </tr>
-    </table>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let converter of converters | filter:query"  (click)="goToDetail(converter)">
+                <td *ngIf="!converter.hidden">{{converter.name}}</td>
+                <td *ngIf="!converter.hidden">{{converter.convertToXliff.join(', ')}}</td>
+                <td *ngIf="!converter.hidden">{{converter.convertFromXliff.join(', ')}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
 </div>

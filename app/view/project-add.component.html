@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="row" >
 	<div class="row">
 		<div class="col-md-3">
 			<button class="btn btn-primary" (click)="goBack()">
@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-6 ">
 			<form *ngIf="model">
 				<div class="form-group">
 					<label for="name">Project name: </label>
@@ -62,3 +62,62 @@
 				</div>
 			</form>
 		</div>
+	</div>
+</div>
+
+<!--
+<div class="col-md-6">
+			<form *ngIf="model">
+				<div class="form-group">
+					<label for="name">Project name: </label>
+					<input class="form-control" type="text" name="name" id="name" [(ngModel)]="model.name" />
+				</div>
+				<div class="form-group">
+					<label for="hashMapIdentifier">Project ID: </label>
+					<input class="form-control" type="text" name="hashMapIdentifier" id="hashMapIdentifier" [(ngModel)]="model.hashMapIdentifier" />
+				</div>
+				<div class="form-group">
+					<label for="git">GIT URL: </label>
+					<input class="form-control" type="text" name="git" id="git" [(ngModel)]="model.git" />
+				</div>
+				<div class="form-group">
+					<label for="project_key">Project key: </label>
+					<input class="form-control" type="text" name="project_key" id="project_key" [(ngModel)]="model.projectKey" />
+				</div>
+				<div class="form-group">
+					<label for="resource_path">Path to resources: </label>
+					<input class="form-control" type="text" name="resource_path" id="resource_path" [(ngModel)]="model.resourcePath" />
+				</div>
+				<div class="form-group">
+					<label for="tmpBranchesInput">Enter branches for project:</label>
+					<div class="input-group">
+						<input class="form-control" type="text" name="tmpBranchesInput" id="tmpBranchesInput" [(ngModel)]="tmpBranchesInput" />
+						<span class="input-group-btn">
+							<button class="btn btn-primary" (click)="addBranch()">
+								<i class="fa fa-plus"></i>Add
+							</button>
+						</span>
+					</div>
+					<div class="project-branch" *ngFor="let branch of model.branches; let i = index">
+						{{branch}}
+						<i class="glyphicon glyphicon-remove" (click)="removeBranch(i)"></i>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="assigneeSelect">
+						Select assignee:
+					</label>
+					<select class="form-control" id="assigneeSelect" #selectValue (change)="onAssigneeSelected(selectValue.value)">
+						<option *ngFor="let user of assignableUsers" [value]="user.id">
+							{{user.name}}
+						</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<button type="button" class="btn btn-primary" (click)="addProject()">Submit</button>
+				</div>
+			</form>
+		</div>
+		-->

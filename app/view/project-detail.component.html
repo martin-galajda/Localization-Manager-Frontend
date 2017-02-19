@@ -1,48 +1,53 @@
-<button class="btn btn-primary" (click)="goBack()">
-	<i class="glyphicon glyphicon-arrow-left"></i> Back
-</button>
-<button class="btn btn-success" (click)="edit()">
-	Edit
-</button>
+<div class="row">
+	<div class="action-edit-buttons">
+		<button class="btn btn-primary" (click)="goBack()">
+			<i class="glyphicon glyphicon-arrow-left"></i> Back
+		</button>
+		<button class="btn btn-success" (click)="edit()">
+			Edit
+		</button>
 
-<button class="btn btn-danger" (click)="delete()">
-	Delete
-</button>
-<div *ngIf="project" class="panel panel-default">
-	<div class="panel-body">
-		<div>
-			<label>Database Id:</label>
-			<p>{{project.id}}</p>
-		</div>
-		<div>
-			<label>Project Id:</label>
-			<p>{{project.hashMapIdentifier}}</p>
-		</div>
-		<div>
-			<label>Project name:</label>
-			<p>{{project.name}}</p>
-		</div>
-		<div>
-			<label>Assignee:</label>
-			<p>{{project.assignee ? project.assignee.name : ''}}</p>
-		</div>
-		<div>
-			<label>Approval:</label>
-			<p>{{project.approval ? project.approval.name : ''}}</p>
-		</div>
-		<div>
-			<label>Git url:</label>
-			<p>{{project.git}}</p>
-		</div>
+		<button class="btn btn-danger" (click)="delete()">
+			Delete
+		</button>
+	</div>
+	<div *ngIf="project" class="panel panel-default">
+		<div class="panel-body">
+			<div>
+				<label>Database Id:</label>
+				<p>{{project.id}}</p>
+			</div>
+			<div>
+				<label>Project Id:</label>
+				<p>{{project.hashMapIdentifier}}</p>
+			</div>
+			<div>
+				<label>Project name:</label>
+				<p>{{project.name}}</p>
+			</div>
+			<div>
+				<label>Assignee:</label>
+				<p>{{project.assignee ? project.assignee.name : ''}}</p>
+			</div>
+			<div>
+				<label>Approval:</label>
+				<p>{{project.approval ? project.approval.name : ''}}</p>
+			</div>
+			<div>
+				<label>Git url:</label>
+				<p>{{project.git}}</p>
+			</div>
 
-		<div>
-			<label>Resource path:</label>
-			<p>{{project.resourcePath}}</p>
+			<div>
+				<label>Resource path:</label>
+				<p>{{project.resourcePath}}</p>
+			</div>
+			<div>
+				<label>Project branches: </label>
+				<p>{{project.branches.join(', ')}}</p>
+			</div>
 		</div>
-		<div>
-			<label>Project branches: </label>
-			<p>{{project.branches.join(', ')}}</p>
-		</div>
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUFV0KKB7RflIAz5hX0N2V2BURxTlLuQ8J7pBD2lS7zwkWeYaZWKHQdz4"/>
 	</div>
 </div>
+
+

@@ -1,80 +1,92 @@
-<div>
-	<!--
-	<p class="heading">PROJECTS</p>
-	-->
-	<div class="col-md-3 input-filter" [ngClass]="{'transient':showSignInModal}">
-	<input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
-	<i class="glyphicon glyphicon-search"></i>
-	</div>
-	<div class="row" [ngClass]="{'transient':showSignInModal}">
+<div class="list-table-container">
+	<div class="row page-title-row ">
+		<div class="col-md-4 page-title">
+			Projects
+		</div>
 		<div class="col-md-6 pull-right">
-			<button class="btn btn-primary pull-right btn-add-project" (click)="goToAddNewProject()">
-				<i class="glyphicon glyphicon-plus" ></i>Add project
+			<button class="btn pull-right btn-add-project" (click)="goToAddNewProject()">
+				Create Project
 			</button>
 		</div>
 	</div>
-<table  class="table table-bordered table-striped">
-	<tr>
-		<th>
-			Project name
-		</th>
-		<th>
-			Git URL
-		</th>
-		<!--
+	<div class="row">
+		<div class="col-md-3 input-filter">
+			<input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query" />
+			<i class="glyphicon glyphicon-search"></i>
+		</div>
+	</div>
+	<div class="row">
+		<table  class="table list-table">
+			<thead>
+			<tr>
+				<th>
+					Project name
+				</th>
+				<th>
+					Git URL
+				</th>
+				<!--
 
-		<th>
-			Stash ID
-		</th>
-	-->
+                <th>
+                    Stash ID
+                </th>
+            -->
 
-		<th>
-			Path to resources
-		</th>
-		<!--
+				<th>
+					Path to resources
+				</th>
+				<!--
 
-		<th>
-			Resource prefix
-		</th>
-	-->
+                <th>
+                    Resource prefix
+                </th>
+            -->
 
-		<!--
+				<!--
 
-		<th>
-			Converter name
-		</th>
-	-->
+                <th>
+                    Converter name
+                </th>
+            -->
 
-		<th>
-			Assignee
-		</th>
+				<th>
+					Assignee
+				</th>
 
-		<!--
-		<th>
-			Reviewer
-		</th>
-	-->
+				<!--
+                <th>
+                    Reviewer
+                </th>
+            -->
 
-	</tr>
+			</tr>
+			</thead>
 
-	<tr *ngFor="let project of projects | filter:query"  (click)="goToDetail(project)">
-		<td *ngIf="!project.hidden">{{project.name}}</td>
-		<td *ngIf="!project.hidden">{{project.git}}</td>
-		<!--
+			<tbody>
+			<tr *ngFor="let project of projects | filter:query"  (click)="goToDetail(project)">
+				<td *ngIf="!project.hidden">{{project.name}}</td>
+				<td *ngIf="!project.hidden">{{project.git}}</td>
+				<!--
 
-		<td *ngIf="!project.hidden">{{project.stash_id}}</td>
-	-->
-		<td *ngIf="!project.hidden">{{project.resourcePath}}</td>
-		<!--
-		<td *ngIf="!project.hidden">{{project.resource_prefix}}</td>
-	-->
-		<!--
-		<td *ngIf="!project.hidden">{{project.converter.name}}</td>
-	-->
-		<td *ngIf="!project.hidden">{{project.assignee ? project.assignee.name : "No assignee"}}</td>
-		<!--
-		<td *ngIf="!project.hidden">{{project.reviewer.name}}</td>
-	-->
-	</tr>
-</table>
+                <td *ngIf="!project.hidden">{{project.stash_id}}</td>
+            -->
+				<td *ngIf="!project.hidden">{{project.resourcePath}}</td>
+				<!--
+                <td *ngIf="!project.hidden">{{project.resource_prefix}}</td>
+            -->
+				<!--
+                <td *ngIf="!project.hidden">{{project.converter.name}}</td>
+            -->
+				<td *ngIf="!project.hidden">{{project.assignee ? project.assignee.name : "No assignee"}}</td>
+				<!--
+                <td *ngIf="!project.hidden">{{project.reviewer.name}}</td>
+            -->
+			</tr>
+			</tbody>
+
+
+		</table>
+	</div>
+
+
 </div>

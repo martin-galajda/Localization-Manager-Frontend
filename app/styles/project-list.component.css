@@ -1,3 +1,15 @@
 .btn-add-project .glyphicon-plus {
 	padding-right: 5px;
 }
+
+.btn-add-project {
+	width: 200px;
+	background: #47BE00;
+	padding: 10px;
+	border: none;
+	border-radius: 0px;
+	color: #fff;
+}
+.btn-add-project:hover {
+	color: #fff;
+}

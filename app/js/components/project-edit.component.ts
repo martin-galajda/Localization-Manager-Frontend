@@ -60,12 +60,22 @@ export class ProjectEditComponent implements OnInit {
 	}
 
 	updateProject(): void {
-		this.projectFetcher
-			.addProject(this.model)
-			.subscribe(
-				() => this.router.navigate(['project/detail', this.id]),
-				(err) => console.log(err)
-			);
+
+		if (!this.updating) {
+			this.updating = true;
+			this.projectFetcher
+				.addProject(this.model)
+				.subscribe(
+					() => {
+						this.router.navigate(['project/detail', this.id]);
+					},
+					(err) => {
+						this.updating = false;
+						console.log(err)
+					}
+				);
+		}
+
 	}
 
 	onAssigneeSelected(id: string): void {
@@ -78,4 +88,5 @@ export class ProjectEditComponent implements OnInit {
 	id: string;
 	assignableUsers: User[] = [];
 	selectedUser: string = null;
+	updating: boolean = false;
 }

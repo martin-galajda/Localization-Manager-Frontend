@@ -4,4 +4,6 @@ export class User {
 	teamName: string;
 	role: string;
 	isAssignable: boolean;
+	pictureUrl: string;
+	email: string;
 }

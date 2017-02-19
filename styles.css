@@ -46,18 +46,6 @@ p.page-heading {
 	font-size: 32px;
 }
 
-td {
-	cursor: pointer;
-}
-
-tr:not(:first-child):hover {
-	border: 1px solid #ccc;
-	outline: 1px solid #333;
-}
-
-tr {
-	transition: border 200ms;
-}
 
 .login-container {
 	width: 100%;
@@ -80,12 +68,9 @@ tr {
 .left {
 	width: 50%;
 	float: left;
-	border-right: 5px solid black;
 	height: 100%;
-}.right {
-	width: 50%;
-	float: right;
 }
+
 
  .navbar.navbar-inverse {
 	 background-color: #f8f8f8;
@@ -167,3 +152,61 @@ tr {
 	vertical-align: middle;
 }
 
+:not(.login-container) .container {
+	background-color: #F5F5F5;
+}
+
+
+/***********TABLES****************/
+
+.list-table {
+	margin-top: 30px;
+}
+
+.table.list-table thead tr {
+	border-bottom: 3px solid #e6e6e6;
+	color: #929292;
+}
+
+.table.list-table tr td {
+	border: none !important;
+	background-color: #F5F5F5;
+	border-bottom: 1px solid #e6e6e6;
+	cursor: pointer;
+}
+
+.table {
+	border: none !important;
+	background-color: #F5F5F5 !important;
+}
+
+tr {
+	border-bottom: 1px solid #e6e6e6 !important;
+	transition: all 250ms;
+}
+
+.table.list-table tr:hover {
+	background: #eee !important;
+}
+
+.table.list-table tr:hover td {
+	background: #eee !important;
+}
+
+.page-title {
+	font-size: 32px;
+	line-height: 1;
+	padding: 0;
+}
+
+.page-title-row {
+	margin-bottom: 20px;
+}
+
+.action-edit-buttons {
+	margin-bottom: 10px;
+}
+
+.page-title-row .col-md-6 {
+	padding-right: 0;
+}
