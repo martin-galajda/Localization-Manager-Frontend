@@ -28,7 +28,7 @@ export class ProjectFetcherService {
 
 	addProject(project: Project): Observable<Project> {
 		let headers = new Headers({ 'Content-Type': 'application/json'});
-		let options = new RequestOptions({headers: headers});
+		let options = new RequestOptions({headers: headers, withCredentials: true});
 
 		return this.http.post(AppConfig.POST_PROJECTS_API_ENDPOINT, project, options)
 			.map(this.extractData)
