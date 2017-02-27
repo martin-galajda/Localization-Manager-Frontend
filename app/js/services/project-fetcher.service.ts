@@ -7,6 +7,8 @@ import { AppConfig } from '../Constants/AppConfig';
 import 'rxjs/Rx';
 
 import { Observable } from 'rxjs/Observable';
+import {ProjectHistory} from "../model/entity/ProjectHistory";
+import {FieldChange} from "../model/FieldChange";
 
 @Injectable()
 export class ProjectFetcherService {
@@ -35,7 +37,13 @@ export class ProjectFetcherService {
 			.catch(this.handleError);
 	}
 
-	private extractData(res: Response) {
+	getProjectHistory(projectId: string): Observable<Array<ProjectHistory>> {
+		return this.http.get(AppConfig.GET_PROJECT_HISTORY_API_ENDPOINT + "/" + projectId, null)
+			.map(this.extractData)
+			.catch(this.handleError);
+	}
+
+	private extractData(res: Response): any {
 		let body = res.json();
 		return body || { };
 	}

@@ -1,5 +1,6 @@
 import { User } from './User';
 import { Converter } from './Converter';
+import { FieldChange } from "../FieldChange";
 
 export class Project {
 	id: string;

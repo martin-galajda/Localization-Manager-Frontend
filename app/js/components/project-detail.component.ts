@@ -2,10 +2,15 @@ import { Project } from '../model/entity/Project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProjectFetcherService } from '../services/project-fetcher.service';
+import {FieldChange} from "../model/FieldChange";
+import {Observable} from "rxjs";
+import {ProjectHistory} from "../model/entity/ProjectHistory";
 
 @Component({
+	moduleId: module.id,
 	selector: 'project-detail',
-	templateUrl: 'app/view/project-detail.component.html'
+	templateUrl: '../../view/project-detail.component.html',
+	styleUrls: ['../../styles/project-detail.component.css']
 })
 
 export class ProjectDetailComponent implements OnInit {
@@ -39,6 +44,11 @@ export class ProjectDetailComponent implements OnInit {
 		});
 	}
 
+	computeChangedValuesForProject(): Observable<Array<ProjectHistory>> {
+		return this.projectFetcher.getProjectHistory(this.project.id);
+	}
+
 	project: Project = null;
 	title: "Web application for management of localization resources.";
+	computeChangedValues = this.computeChangedValuesForProject.bind(this);
 }

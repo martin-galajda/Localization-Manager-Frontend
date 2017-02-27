@@ -16,6 +16,7 @@ import { ConverterAddComponent } 			from "./js/components/converter-add.componen
 import { ConverterDetailComponent } 			from "./js/components/converter-detail.component";
 import { ConverterEditComponent } 			from "./js/components/converter-edit.component";
 import { SignInBoxComponent } from "./js/components/sign-in-box.component";
+import { HistoryPanelComponent } from "./js/components/history-panel.component";
 
 import { FilterPipe } 				from './js/filters/filter.pipe';
 
@@ -30,6 +31,9 @@ import { AdminGuard } from "./js/services/admin-guard.service";
 
 
 
+const cookieStrategyFactory = () => {
+	return new CookieXSRFStrategy('PLAY_SESSION', 'X-Requested-With');
+};
 
 @NgModule({
 	imports:[
@@ -53,7 +57,8 @@ import { AdminGuard } from "./js/services/admin-guard.service";
 		LoginComponent,
 		UserListComponent,
 		FilterPipe,
-		SignInBoxComponent
+		SignInBoxComponent,
+		HistoryPanelComponent
 	],
 	providers: [
 		ProjectFetcherService,
@@ -64,7 +69,7 @@ import { AdminGuard } from "./js/services/admin-guard.service";
 		AdminGuard,
 		{
 			provide: XSRFStrategy,
-			useValue: new CookieXSRFStrategy('PLAY_SESSION', 'X-Requested-With')
+			useValue: cookieStrategyFactory()
 		}
 	],
 	bootstrap: [

@@ -1,0 +1,24 @@
+<div class="history-panel container-fluid">
+    <div class="row history-heading">
+        <div class="history-heading-wrapper">
+            <h2>Project history</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let panelHistory of panelHistoryChanges" class="col-md-12 history-row">
+            <p>{{panelHistory.when}}</p>
+            <p>
+                <span>{{panelHistory.who}}</span>
+                <span i18n>changed</span>
+                <span *ngFor="let panelHistoryFieldChange of panelHistory.fieldChangeList; let isLast = last">
+                    '{{panelHistoryFieldChange.fieldName}}'
+                    <span i18n>from</span>
+                    {{panelHistoryFieldChange.oldValue}}
+                    <span i18n>to</span>
+                    {{panelHistoryFieldChange.newValue}}
+                    {{isLast ? '' : ', '}}
+                </span>
+            </p>
+        </div>
+    </div>
+</div>

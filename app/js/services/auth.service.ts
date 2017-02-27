@@ -50,7 +50,7 @@ export class AuthService {
             .map(res => res);
     }
 
-    private extractData(res: Response) {
+    private extractData(res: Response): User {
         this.loggedUser = res.json();
         console.log('logged user : ', this.loggedUser);
         this.isInitialized = true;

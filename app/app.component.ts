@@ -7,9 +7,10 @@ import { AuthService } from "./js/services/auth.service";
 import 'rxjs/Rx';
 
 @Component({
+	moduleId: module.id,
 	selector: 'app',
-	templateUrl: 'app/view/app.component.html',
-	styleUrls: ['app/styles/app.component.css']
+	templateUrl: './view/app.component.html',
+	styleUrls: ['./styles/app.component.css']
 })
 
 export class AppComponent implements OnInit {

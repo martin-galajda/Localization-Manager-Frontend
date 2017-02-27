@@ -6,4 +6,6 @@ export class User {
 	isAssignable: boolean;
 	pictureUrl: string;
 	email: string;
+
+
 }

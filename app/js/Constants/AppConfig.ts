@@ -1,6 +1,8 @@
 export class AppConfig {
 	public static get BASE_PATH(): string {
 		return 'https://glacial-hollows-97055.herokuapp.com/';
+
+		//return 'http://translationmanager.fwd.wf/';
 	}
 
 	public static get GET_PROJECTS_API_ENDPOINT(): string {
@@ -33,5 +35,9 @@ export class AppConfig {
 
 	public static get USER_API_ENDPOINT(): string {
 		return AppConfig.BASE_PATH + 'user';
+	}
+
+	public static get GET_PROJECT_HISTORY_API_ENDPOINT(): string {
+		return AppConfig.BASE_PATH + 'project_history';
 	}
 }

@@ -1,0 +1,47 @@
+.panel .panel-body label {
+    padding: 5px;
+    width: 25%;
+    outline: 1px solid #ccc;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    font-size: 18px;
+    background-color: #fff;
+}
+
+.panel .panel-body p {
+    width: 70%;
+    padding: 5px;
+    text-align: center;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    outline: 1px solid #ccc;
+    font-size: 18px;
+    font-style: italic;
+    background-color: #fff;
+}
+
+.panel .panel-body p:hover {
+    box-shadow: 0px 0px 4px 1px #ccc;
+}
+
+.panel .panel-body div {
+    margin-top: 10px;
+}
+
+.panel-body {
+    background-color: #F6F7F9;
+}
+
+.panel-heading h2 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    top: 12px;
+    background-color: #F6F7F9;
+    display: inline;
+    font-size: 36px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.panel-heading {
+    background-color: #F6F7F9;
+}

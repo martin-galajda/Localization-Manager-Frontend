@@ -12,26 +12,29 @@
         </button>
     </div>
 
-    <div *ngIf="converter" class="panel panel-default">
-        <div class="panel-body">
-            <div>
-                <label>Converter Id:</label>
-                <p>{{converter.id}}</p>
-            </div>
-            <div>
-                <label>Converter name:</label>
-                <p>{{converter.name}}</p>
-            </div>
-            <div>
-                <label>Transform from xliff instructions:</label>
-                <p>{{converter.convertFromXliff.join(', ')}}</p>
-            </div>
-            <div>
-                <label>Transform to xliff instructions:</label>
-                <p>{{converter.convertToXliff.join(', ')}}</p>
+    <div class="col-md-6">
+        <div *ngIf="converter" class="panel panel-default">
+            <div class="panel-body">
+                <div>
+                    <label>Converter Id:</label>
+                    <p>{{converter.id}}</p>
+                </div>
+                <div>
+                    <label>Converter name:</label>
+                    <p>{{converter.name}}</p>
+                </div>
+                <div>
+                    <label>Transform from xliff instructions:</label>
+                    <p>{{converter.convertFromXliff.join(', ')}}</p>
+                </div>
+                <div>
+                    <label>Transform to xliff instructions:</label>
+                    <p>{{converter.convertToXliff.join(', ')}}</p>
+                </div>
             </div>
         </div>
     </div>
+
 
 </div>
 

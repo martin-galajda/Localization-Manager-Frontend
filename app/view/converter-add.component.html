@@ -11,16 +11,17 @@
         <div class="col-md-6">
             <form *ngIf="model">
                 <div class="form-group">
-                    <label for="name">Converter name: </label>
+                    <label for="name" i18n>Converter name: </label>
                     <input class="form-control" type="text" name="name" id="name" [(ngModel)]="model.name" />
                 </div>
                 <div class="form-group">
-                    <label for="converToXliffInput">Enter convert to xliff scripts:</label>
+                    <label for="converToXliffInput" i18n>Enter convert to xliff scripts:</label>
                     <div class="input-group">
                         <input class="form-control" type="text" name="converToXliffInput" id="converToXliffInput" [(ngModel)]="convertToXliffInput" />
                         <span class="input-group-btn">
 							<button class="btn btn-primary" (click)="addConvertToXliff()">
-								<i class="fa fa-plus"></i>Add
+								<i class="fa fa-plus"></i>
+                                Add
 							</button>
 						</span>
                     </div>
@@ -31,7 +32,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="convertFromXliffInput">Enter convert from xliff scripts:</label>
+                    <label for="convertFromXliffInput" i18n>Enter convert from xliff scripts:</label>
                     <div class="input-group">
                         <input class="form-control" type="text" name="convertFromXliffInput" id="convertFromXliffInput" [(ngModel)]="convertFromXliffInput" />
                         <span class="input-group-btn">
@@ -47,7 +48,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary" (click)="addConverter()">Submit</button>
+                    <button type="button" class="btn btn-primary" (click)="addConverter()" i18n>Submit</button>
                 </div>
             </form>
         </div>
