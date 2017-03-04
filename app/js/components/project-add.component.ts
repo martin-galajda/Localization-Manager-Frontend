@@ -2,23 +2,30 @@ import { Project } from '../model/entity/Project';
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectFetcherService } from '../services/project-fetcher.service';
-import {UserService} from "../services/user.service";
-import {User} from "../model/entity/User";
+import { UserService } from "../services/user.service";
+import { User } from "../model/entity/User";
+import { ConverterService } from "../services/converter.service";
+import {Converter} from "../model/entity/Converter";
 @Component({
+	moduleId: module.id,
 	selector: 'project-add',
-	templateUrl: 'app/view/project-add.component.html'
+	templateUrl: '../../view/project-add.component.html',
+	styleUrls: ['../../styles/form.component.css']
 })
 
 export class ProjectAddComponent implements OnInit
 {
 
-	constructor(
+	constructor
+	(
 		private router: Router,
 		private userService: UserService,
-		private projectService: ProjectFetcherService)
-		{
-			this.model = new Project();
-		}
+		private projectService: ProjectFetcherService,
+		private converterService: ConverterService
+	)
+	{
+		this.model = new Project();
+	}
 
 
 	ngOnInit(): void {
@@ -26,6 +33,13 @@ export class ProjectAddComponent implements OnInit
 			users => this.assignableUsers = users.filter(user => user.isAssignable),
 			err	  => console.log(err)
 		);
+
+		this.converterService.getConverters().subscribe(
+			converters => this.assignableConverters = converters,
+			() => {
+				throw "Error fetching converters";
+			}
+		)
 	}
 
 	goBack(): void {
@@ -50,6 +64,10 @@ export class ProjectAddComponent implements OnInit
 		this.model.assignee = this.assignableUsers.find(user => user.id === userId);
 	}
 
+	onConverterSelected(converterId : string): void {
+		this.model.converter = this.assignableConverters.find(converter => converter.id === converterId);
+	}
+
 	model: Project;
 	formats = [
 		{id: 'XML', name:'XML'},
@@ -60,4 +78,5 @@ export class ProjectAddComponent implements OnInit
 	disabled: boolean = false;
 	tmpBranchesInput: string;
 	assignableUsers: User[] = [];
+	assignableConverters: Converter[] = [];
 }

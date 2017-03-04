@@ -210,3 +210,9 @@ tr {
 .page-title-row .col-md-6 {
 	padding-right: 0;
 }
+
+
+
+#page-content-wrapper {
+	background-color: #F5F5F5;
+}

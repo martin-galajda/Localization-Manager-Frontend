@@ -28,12 +28,12 @@ declare var moment : any;
 @Injectable()
 export class HistoryPanelComponent implements OnInit
 {
-    @Input() getChangedValues: () => Observable<Array<ProjectHistory>>;
+    @Input() getChangedValues: (lastLoadedId : string) => Observable<Array<ProjectHistory>>;
 
     constructor() {}
 
     ngOnInit(): void {
-        this.getChangedValues().subscribe((history) => {
+        this.getChangedValues(this.lastLoadedId).subscribe((history) => {
             this.history = history;
             this.panelHistoryChanges = this.transformHistoryToPanelMessages(history);
             console.log("changedValues: ", history);
@@ -42,6 +42,13 @@ export class HistoryPanelComponent implements OnInit
 
     transformHistoryToPanelMessages(historyChanges : Array<ProjectHistory> ): Array<String> {
         const panelHistory = [];
+        this.canLoadMore = historyChanges.length === 6;
+
+        if (this.canLoadMore) {
+            const lastItem = historyChanges.shift();
+            this.lastLoadedId = lastItem ? lastItem.id : this.lastLoadedId;
+        }
+
         historyChanges = historyChanges.sort((historyChangeFst, historyChangeSnd) => {
             return historyChangeSnd.createdAtTimestamp - historyChangeFst.createdAtTimestamp;
         });
@@ -54,6 +61,7 @@ export class HistoryPanelComponent implements OnInit
             });
         });
 
+
         return panelHistory;
     }
 
@@ -62,6 +70,19 @@ export class HistoryPanelComponent implements OnInit
         return date.fromNow();
     }
 
+    onScroll(): void {
+        if (this.canLoadMore) {
+            this.getChangedValues(this.lastLoadedId).subscribe((additionalHistory) => {
+                this.history = this.history.concat(additionalHistory);
+                this.panelHistoryChanges = this.panelHistoryChanges.concat(this.transformHistoryToPanelMessages(additionalHistory));
+                console.log("changedValues: ", additionalHistory);
+            });
+        }
+
+    }
+
     history: Array<ProjectHistory>;
-    panelHistoryChanges: Array<Object>;
+    panelHistoryChanges: Array<Object> = [];
+    lastLoadedId: string = null;
+    canLoadMore: boolean = true;
 }

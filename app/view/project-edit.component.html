@@ -1,12 +1,5 @@
 <div class="row" >
-	<div class="row">
-		<div class="col-md-3">
-			<button class="btn btn-primary" (click)="goBack()">
-				<i class="glyphicon glyphicon-arrow-left"></i>
-				Back
-			</button>
-		</div>
-	</div>
+
 	<div class="row">
 		<div class="col-md-12">
 			<form *ngIf="model">
@@ -48,19 +41,43 @@
 
 				<div class="form-group">
 					<label for="assigneeSelect">
-						Selected assignee: {{selectedUser}}
+						Assignee
 					</label>
 					<select
 							class="form-control"
-							id="assigneeSelect" #selectValue (change)="onAssigneeSelected(selectValue.value)">
-						<option *ngFor="let user of assignableUsers" [value]="user.id">
+							id="assigneeSelect"
+							#selectValue
+							(change)="onAssigneeSelected(selectValue.value)"
+					>
+						<option *ngFor="let user of assignableUsers"
+								[value]="user.id"
+								[selected]="model.assignee && user.name === model.assignee.name"
+						>
 							{{user.name}}
 						</option>
 					</select>
 				</div>
 
 				<div class="form-group">
-					<button type="button" class="btn btn-primary" (click)="updateProject()">Submit</button>
+					<label for="converterSelect">
+						Converter
+					</label>
+					<select class="form-control select"
+							id="converterSelect"
+							#selectConverterValue
+							(change)="onConverterSelected(selectConverterValue.value)"
+					>
+						<option *ngFor="let converter of assignableConverters"
+								[value]="converter.id"
+								[selected]="model.converter && converter.name === model.converter.name">
+							{{converter.name}}
+						</option>
+					</select>
+				</div>
+
+				<div class="form-group form-footer">
+					<button type="button" class="btn btn-cancel" (click)="goBack()">Cancel</button>
+					<button type="button" class="btn btn-primary btn-save" (click)="updateProject()">Save</button>
 				</div>
 			</form>
 		</div>

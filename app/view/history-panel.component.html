@@ -4,8 +4,15 @@
             <h2>Project history</h2>
         </div>
     </div>
-    <div class="row">
-        <div *ngFor="let panelHistory of panelHistoryChanges" class="col-md-12 history-row">
+    <div class="row"
+         infinite-scroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="300"
+         (scrolled)="onScroll()"
+         [scrollWindow]="false"
+        >
+        <div
+                *ngFor="let panelHistory of panelHistoryChanges" class="col-md-12 history-row">
             <p>{{panelHistory.when}}</p>
             <p>
                 <span>{{panelHistory.who}}</span>

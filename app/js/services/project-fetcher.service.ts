@@ -37,8 +37,15 @@ export class ProjectFetcherService {
 			.catch(this.handleError);
 	}
 
-	getProjectHistory(projectId: string): Observable<Array<ProjectHistory>> {
-		return this.http.get(AppConfig.GET_PROJECT_HISTORY_API_ENDPOINT + "/" + projectId, null)
+	getProjectHistory(projectId: string, lastLoadedId: string): Observable<Array<ProjectHistory>> {
+
+		let url = AppConfig.GET_PROJECT_HISTORY_API_ENDPOINT + "/" + projectId + "?limit=6";
+
+		if (lastLoadedId !== null) {
+			url += "&endAtId=" + lastLoadedId;
+		}
+
+		return this.http.get(url, null)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}

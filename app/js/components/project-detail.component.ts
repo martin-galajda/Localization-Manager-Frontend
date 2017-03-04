@@ -10,7 +10,7 @@ import {ProjectHistory} from "../model/entity/ProjectHistory";
 	moduleId: module.id,
 	selector: 'project-detail',
 	templateUrl: '../../view/project-detail.component.html',
-	styleUrls: ['../../styles/project-detail.component.css']
+	styleUrls: ['../../styles/detail.component.css']
 })
 
 export class ProjectDetailComponent implements OnInit {
@@ -44,11 +44,10 @@ export class ProjectDetailComponent implements OnInit {
 		});
 	}
 
-	computeChangedValuesForProject(): Observable<Array<ProjectHistory>> {
-		return this.projectFetcher.getProjectHistory(this.project.id);
+	computeChangedValuesForProject(lastLoadedId: string): Observable<Array<ProjectHistory>> {
+		return this.projectFetcher.getProjectHistory(this.project.id, lastLoadedId);
 	}
 
 	project: Project = null;
-	title: "Web application for management of localization resources.";
 	computeChangedValues = this.computeChangedValuesForProject.bind(this);
 }

@@ -23,6 +23,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       'moment': 'npm:moment/moment.js',
+      'angular2-infinite-scroll': 'npm:angular2-infinite-scroll',
       // other libraries
       'rxjs':                       'npm:rxjs',
       'angular2-in-memory-web-api': 'npm:angular2-in-memory-web-api'
@@ -38,6 +39,10 @@
       },
       'angular2-in-memory-web-api': {
         main: './index.js',
+        defaultExtension: 'js'
+      },
+      'angular2-infinite-scroll': {
+        main: 'angular2-infinite-scroll.js',
         defaultExtension: 'js'
       }
     }

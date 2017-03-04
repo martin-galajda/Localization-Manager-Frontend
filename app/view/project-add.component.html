@@ -1,37 +1,30 @@
 <div class="row" >
+
 	<div class="row">
-		<div class="col-md-3">
-			<button class="btn btn-primary" (click)="goBack()">
-				<i class="glyphicon glyphicon-arrow-left"></i>
-				Back
-			</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-6 ">
+		<div class="col-md-12">
 			<form *ngIf="model">
 				<div class="form-group">
-					<label for="name">Project name: </label>
+					<label for="name">Project name </label>
 					<input class="form-control" type="text" name="name" id="name" [(ngModel)]="model.name" />
 				</div>
 				<div class="form-group">
-					<label for="hashMapIdentifier">Project ID: </label>
+					<label for="hashMapIdentifier">Project ID </label>
 					<input class="form-control" type="text" name="hashMapIdentifier" id="hashMapIdentifier" [(ngModel)]="model.hashMapIdentifier" />
 				</div>
 				<div class="form-group">
-					<label for="git">GIT URL: </label>
+					<label for="git">Git Url </label>
 					<input class="form-control" type="text" name="git" id="git" [(ngModel)]="model.git" />
 				</div>
 				<div class="form-group">
-					<label for="project_key">Project key: </label>
+					<label for="project_key">Project key </label>
 					<input class="form-control" type="text" name="project_key" id="project_key" [(ngModel)]="model.projectKey" />
 				</div>
 				<div class="form-group">
-					<label for="resource_path">Path to resources: </label>
+					<label for="resource_path">Path to resources </label>
 					<input class="form-control" type="text" name="resource_path" id="resource_path" [(ngModel)]="model.resourcePath" />
 				</div>
 				<div class="form-group">
-					<label for="tmpBranchesInput">Enter branches for project:</label>
+					<label for="tmpBranchesInput">Enter branches for project</label>
 					<div class="input-group">
 						<input class="form-control" type="text" name="tmpBranchesInput" id="tmpBranchesInput" [(ngModel)]="tmpBranchesInput" />
 						<span class="input-group-btn">
@@ -48,9 +41,9 @@
 
 				<div class="form-group">
 					<label for="assigneeSelect">
-						Select assignee:
+						Select assignee
 					</label>
-					<select class="form-control" id="assigneeSelect" #selectValue (change)="onAssigneeSelected(selectValue.value)">
+					<select class="form-control select" id="assigneeSelect" #selectValue (change)="onAssigneeSelected(selectValue.value)">
 						<option *ngFor="let user of assignableUsers" [value]="user.id">
 							{{user.name}}
 						</option>
@@ -58,7 +51,22 @@
 				</div>
 
 				<div class="form-group">
-					<button type="button" class="btn btn-primary" (click)="addProject()">Submit</button>
+					<label for="converterSelect">
+						Select converter
+					</label>
+					<select class="form-control select"
+							id="converterSelect"
+							#selectConverterValue
+							(change)="onConverterSelected(selectConverterValue.value)"
+					>
+						<option *ngFor="let converter of assignableConverters" [value]="converter.id">
+							{{converter.name}}
+						</option>
+					</select>
+				</div>
+
+				<div class="form-group form-footer">
+					<button type="button" class="btn btn-primary btn-save" (click)="addProject()">Submit</button>
 				</div>
 			</form>
 		</div>

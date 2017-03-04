@@ -2,12 +2,16 @@ import { Project } from '../model/entity/Project';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProjectFetcherService } from '../services/project-fetcher.service';
-import {UserService} from "../services/user.service";
-import {User} from "../model/entity/User";
+import { UserService } from "../services/user.service";
+import { User } from "../model/entity/User";
+import { Converter } from "../model/entity/Converter";
+import { ConverterService } from "../services/converter.service";
 
 @Component({
+	moduleId: module.id,
 	selector: 'project-edit',
-	templateUrl: 'app/view/project-edit.component.html'
+	templateUrl: '../../view/project-edit.component.html',
+	styleUrls: ['../../styles/form.component.css']
 })
 
 export class ProjectEditComponent implements OnInit {
@@ -15,7 +19,8 @@ export class ProjectEditComponent implements OnInit {
 		private projectFetcher: ProjectFetcherService,
 		private route: ActivatedRoute,
 		private router: Router,
-		private userService: UserService
+		private userService: UserService,
+		private converterService: ConverterService
 	) {
 
 	}
@@ -27,6 +32,7 @@ export class ProjectEditComponent implements OnInit {
 			this.getProject(id);
 		});
 		this.getUsers();
+		this.getConverters();
 	}
 
 	getProject(projectId: string): void {
@@ -36,6 +42,18 @@ export class ProjectEditComponent implements OnInit {
 				this.model = project;
 				this.selectedUser = project.assignee.name;
 			});
+	}
+
+	getConverters(): void {
+		this.converterService.getConverters().subscribe(
+			converters => {
+				this.assignableConverters = converters;
+				this.selectedConverter = this.model.converter.name;
+			},
+			() => {
+				throw "Error fetching converters";
+			}
+		)
 	}
 
 	getUsers(): void {
@@ -83,10 +101,16 @@ export class ProjectEditComponent implements OnInit {
 		this.selectedUser = this.model.assignee.name;
 	}
 
+	onConverterSelected(converterId : string): void {
+		this.model.converter = this.assignableConverters.find(converter => converter.id === converterId);
+	}
+
 	model: Project = null;
 	tmpBranchesInput: string = "";
 	id: string;
 	assignableUsers: User[] = [];
 	selectedUser: string = null;
+	selectedConverter: string = null;
 	updating: boolean = false;
+	assignableConverters: Converter[] = [];
 }

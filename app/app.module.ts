@@ -3,6 +3,7 @@ import { BrowserModule }			from '@angular/platform-browser';
 import { AppComponent }				from './app.component';
 import { FormsModule } 				from '@angular/forms';
 import {HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}    from '@angular/http';
+import { InfiniteScrollModule } from "angular2-infinite-scroll";
 
 import { ProjectDetailComponent } 	from './js/components/project-detail.component';
 import { ProjectListComponent } 	from './js/components/project-list.component';
@@ -41,7 +42,8 @@ const cookieStrategyFactory = () => {
 		FormsModule,
 		HttpModule,
 		JsonpModule,
-		routing
+		routing,
+		InfiniteScrollModule
 	],
 	declarations: [
 		AppComponent,

@@ -1,0 +1,75 @@
+form {
+    width: 60%;
+    margin-left: 20%;
+    padding: 45px;
+    border: 1px solid #ccc;
+    box-shadow: #ddd 0px 10px 30px, #ddd 0px 6px 10px;
+    background: #fff;
+}
+
+form input.form-control {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 20px;
+    padding-left: 0;
+}
+
+form label {
+    font-size: 19px;
+    color: #aaa;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+form input.form-control:focus {
+    border-top: 0px solid #66afe9;
+    border-left: 0px solid #66afe9;
+    border-right: 0px solid #66afe9;
+    box-shadow: none;
+    border-bottom: 2px solid #66afe9;
+}
+
+.form-control {
+    transition: all 200ms linear;
+}
+
+.btn-save {
+    background-color: #02c18c;
+    border-color: #02c18c;
+    font-size: 20px;
+    width: 100px;
+}
+
+.btn-save:hover {
+    background-color: #02c18c;
+    border-color: #02c18c;
+}
+
+.form-footer {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.btn-cancel {
+    background: #fff;
+    font-size: 20px;
+    transition: background 200ms ease-in-out;
+}
+
+.btn-cancel:hover {
+    background: #eee;
+}
+
+.input-group-btn .btn {
+    background: #ccc;
+    border: 1px solid #ccc;
+}
+
+.input-group-btn .btn:hover {
+    background: #ccc;
+    border: 1px solid #ccc;
+}
