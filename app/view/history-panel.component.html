@@ -18,11 +18,11 @@
                 <span>{{panelHistory.who}}</span>
                 <span i18n>changed</span>
                 <span *ngFor="let panelHistoryFieldChange of panelHistory.fieldChangeList; let isLast = last">
-                    '{{panelHistoryFieldChange.fieldName}}'
+                    <span class="field">{{panelHistoryFieldChange.fieldName}}</span>
                     <span i18n>from</span>
-                    {{panelHistoryFieldChange.oldValue}}
+                    <span class="">{{panelHistoryFieldChange.oldValue}}</span>
                     <span i18n>to</span>
-                    {{panelHistoryFieldChange.newValue}}
+                    <span class="">{{panelHistoryFieldChange.newValue}}</span>
                     {{isLast ? '' : ', '}}
                 </span>
             </p>

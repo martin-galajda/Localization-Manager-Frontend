@@ -1,34 +1,37 @@
 <div class="row">
-    <div class="action-edit-buttons">
-        <button class="btn btn-primary" (click)="goBack()">
-            <i class="glyphicon glyphicon-arrow-left"></i> Back
-        </button>
-        <button class="btn btn-success" (click)="edit()">
-            Edit
-        </button>
+    <div class="col-md-12">
+        <div class="action-edit-buttons">
+            <button class="btn btn-primary" (click)="goBack()">
+                <i class="glyphicon glyphicon-arrow-left"></i> Back
+            </button>
+            <button class="btn btn-success" (click)="edit()">
+                <i class="fa fa-pencil"></i> Edit
+            </button>
 
-        <button class="btn btn-danger" (click)="delete()">
-            Delete
-        </button>
+            <button class="btn btn-danger" (click)="delete()">
+                <i class="fa fa-trash"></i>Delete
+            </button>
+        </div>
     </div>
 
-    <div class="col-md-6">
+
+    <div class="col-md-9">
         <div *ngIf="converter" class="panel panel-default">
             <div class="panel-body">
                 <div>
-                    <label>Converter Id:</label>
+                    <label><span>Converter Id</span></label>
                     <p>{{converter.id}}</p>
                 </div>
                 <div>
-                    <label>Converter name:</label>
+                    <label><span>Converter name</span></label>
                     <p>{{converter.name}}</p>
                 </div>
                 <div>
-                    <label>Transform from xliff instructions:</label>
+                    <label><span>Transform from xliff instructions</span></label>
                     <p>{{converter.convertFromXliff.join(', ')}}</p>
                 </div>
                 <div>
-                    <label>Transform to xliff instructions:</label>
+                    <label><span>Transform to xliff instructions</span></label>
                     <p>{{converter.convertToXliff.join(', ')}}</p>
                 </div>
             </div>

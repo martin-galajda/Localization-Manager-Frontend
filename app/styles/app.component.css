@@ -109,7 +109,7 @@ body {
 }
 
 .sidebar-nav > .sidebar-brand {
-    height: 65px;
+    height: 80px;
     font-size: 18px;
     line-height: 60px;
 }
@@ -173,4 +173,13 @@ a.active {
 #wrapper.login-container {
     padding: 0 !important;
     background: none;
+}
+
+.sidebar-icon-wrapper .fa {
+    float: left;
+    position: relative;
+    top: 9px;
+    left: 5px;
+    font-size: 20px;
+    width: 40px;
 }

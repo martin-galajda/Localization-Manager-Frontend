@@ -17,6 +17,7 @@ label span {
     font-style: italic;
     background-color: #fff;
     border: 1px solid #eee;
+    display: inline-block;
 }
 
 .panel .panel-body p:hover {

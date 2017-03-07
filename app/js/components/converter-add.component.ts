@@ -4,8 +4,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ConverterService } from '../services/converter.service';
 import { Converter } from "../model/entity/Converter";
 @Component({
+    moduleId: module.id,
     selector: 'converter-add',
-    templateUrl: 'app/view/converter-add.component.html'
+    templateUrl: '../../view/converter-add.component.html',
+    styleUrls: ['../../styles/form.component.css']
 })
 
 export class ConverterAddComponent

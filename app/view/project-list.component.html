@@ -25,40 +25,23 @@
 				<th>
 					Git URL
 				</th>
-				<!--
 
-                <th>
-                    Stash ID
-                </th>
-            -->
 
 				<th>
 					Path to resources
 				</th>
-				<!--
-
-                <th>
-                    Resource prefix
-                </th>
-            -->
-
-				<!--
-
-                <th>
-                    Converter name
-                </th>
-            -->
 
 				<th>
 					Assignee
 				</th>
 
-				<!--
-                <th>
-                    Reviewer
-                </th>
-            -->
+				<th>
+					Status
+				</th>
 
+				<th>
+					Word count
+				</th>
 			</tr>
 			</thead>
 
@@ -66,21 +49,15 @@
 			<tr *ngFor="let project of projects | filter:query"  (click)="goToDetail(project)">
 				<td *ngIf="!project.hidden">{{project.name}}</td>
 				<td *ngIf="!project.hidden">{{project.git}}</td>
-				<!--
-
-                <td *ngIf="!project.hidden">{{project.stash_id}}</td>
-            -->
 				<td *ngIf="!project.hidden">{{project.resourcePath}}</td>
-				<!--
-                <td *ngIf="!project.hidden">{{project.resource_prefix}}</td>
-            -->
-				<!--
-                <td *ngIf="!project.hidden">{{project.converter.name}}</td>
-            -->
 				<td *ngIf="!project.hidden">{{project.assignee ? project.assignee.name : "No assignee"}}</td>
-				<!--
-                <td *ngIf="!project.hidden">{{project.reviewer.name}}</td>
-            -->
+				<td *ngIf="!project.hidden"
+					[ngClass]="{
+						'status-done': project.status === 2,
+						'status-in-progress': project.status === 1
+					}"
+				>{{getReadableProjectStatus(project.status)}}</td>
+				<td *ngIf="!project.hidden" class="badge-column"><span class="badge">{{project.wordCount}}</span></td>
 			</tr>
 			</tbody>
 

@@ -13,3 +13,23 @@
 .btn-add-project:hover {
 	color: #fff;
 }
+
+.table.list-table tr td.status-done {
+	background-color: #CCF6AE !important;
+}
+
+.table.list-table tr td.status-in-progress {
+	background-color: #C6E5D9 !important;
+}
+
+.table.list-table tr:hover td.status-done {
+	background-color: #CCF6AE !important;
+}
+
+.table.list-table tr:hover td.status-in-progress {
+	background-color: #C6E5D9 !important;
+}
+
+.badge-column {
+	text-align: center;
+}

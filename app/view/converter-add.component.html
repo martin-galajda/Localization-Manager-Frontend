@@ -1,14 +1,10 @@
 <div class="row" >
     <div class="row">
-        <div class="col-md-3">
-            <button class="btn btn-primary" (click)="goBack()">
-                <i class="glyphicon glyphicon-arrow-left"></i>
-                Back
-            </button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
+            <div class="form-heading-wrapper">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                <h2>Create Converter</h2>
+            </div>
             <form *ngIf="model">
                 <div class="form-group">
                     <label for="name" i18n>Converter name: </label>
@@ -47,8 +43,9 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <button type="button" class="btn btn-primary" (click)="addConverter()" i18n>Submit</button>
+                <div class="form-group form-footer">
+                    <button type="button" class="btn btn-primary btn-cancel" (click)="goBack()" i18n>Cancel</button>
+                    <button type="button" class="btn btn-primary btn-save" (click)="addConverter()" i18n>Submit</button>
                 </div>
             </form>
         </div>

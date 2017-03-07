@@ -5,8 +5,10 @@ import { Converter } from "../model/entity/Converter";
 
 
 @Component({
+    moduleId: module.id,
     selector: 'converter-edit',
-    templateUrl: 'app/view/converter-edit.component.html'
+    templateUrl: '../../view/converter-edit.component.html',
+    styleUrls: ['../../styles/form.component.css']
 })
 export class ConverterEditComponent
 {

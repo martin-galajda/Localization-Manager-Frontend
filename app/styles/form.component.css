@@ -57,7 +57,9 @@ form input.form-control:focus {
 .btn-cancel {
     background: #fff;
     font-size: 20px;
+    color: #000;
     transition: background 200ms ease-in-out;
+    border: none;
 }
 
 .btn-cancel:hover {
@@ -72,4 +74,30 @@ form input.form-control:focus {
 .input-group-btn .btn:hover {
     background: #ccc;
     border: 1px solid #ccc;
+}
+
+.fa.fa-plus {
+    margin-right: 5px;
+}
+
+.form-heading-wrapper {
+    width: 60%;
+    margin-left: 20%;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    padding: 10px;
+    background: #fff;
+    padding-left: 30px;
+    box-shadow: #ddd 0px 10px 30px, #ddd 0px 6px;
+}
+
+.form-heading-wrapper h2 {
+    color: #999;
+    display: inline-block;
+}
+
+.form-heading-wrapper i.fa {
+    font-size: 32px;
+    color: #999;
+    margin-right: 5px;
 }

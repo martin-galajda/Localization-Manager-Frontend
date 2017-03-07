@@ -1,11 +1,13 @@
 import { Project } from '../model/entity/Project';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, AfterViewChecked, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectFetcherService } from '../services/project-fetcher.service';
 import { UserService } from "../services/user.service";
 import { User } from "../model/entity/User";
 import { ConverterService } from "../services/converter.service";
 import {Converter} from "../model/entity/Converter";
+import {NgForm} from "@angular/forms";
+
 @Component({
 	moduleId: module.id,
 	selector: 'project-add',
@@ -13,7 +15,7 @@ import {Converter} from "../model/entity/Converter";
 	styleUrls: ['../../styles/form.component.css']
 })
 
-export class ProjectAddComponent implements OnInit
+export class ProjectAddComponent implements OnInit, AfterViewChecked
 {
 
 	constructor
@@ -61,6 +63,8 @@ export class ProjectAddComponent implements OnInit
 	}
 
 	onAssigneeSelected(userId : string): void {
+		console.log(this.projectForm.form);
+		console.log(this.projectForm);
 		this.model.assignee = this.assignableUsers.find(user => user.id === userId);
 	}
 
@@ -68,15 +72,73 @@ export class ProjectAddComponent implements OnInit
 		this.model.converter = this.assignableConverters.find(converter => converter.id === converterId);
 	}
 
+	@ViewChild('projectForm') currentForm: NgForm;
+
+	ngAfterViewChecked() {
+		this.formChanged();
+	}
+
+	formChanged() {
+		this.projectForm = this.currentForm;
+		if (this.projectForm) {
+			this.projectForm.valueChanges
+				.subscribe(data => this.onValueChanged(data));
+		}
+	}
+
+	onValueChanged(data?: any) {
+		if (!this.projectForm) { return; }
+		const form = this.projectForm.form;
+
+		for (const field in this.formErrors) {
+			// clear previous error message (if any)
+			this.formErrors[field] = '';
+			const control = form.get(field);
+			console.log(control);
+			console.log(field);
+			if (control && control.touched && control.invalid) {
+				const messages = this.validationMessages[field];
+				console.log(`messages: ${messages}`);
+				for (const key in control.errors) {
+					console.log(`key: ${key}`);
+					this.formErrors[field] += messages[key] + ' ';
+				}
+			}
+
+			console.log(this.formErrors);
+		}
+	}
+
+	formErrors = {
+		'name': '',
+		'hashMapIdentifier': '',
+		'git': '',
+		'projectKey': '',
+		'resourcePath': ''
+	};
+
+	validationMessages = {
+		'name': {
+			'required': 'Name is required.',
+		},
+		'hashMapIdentifier': {
+			'required': 'Project ID is required.'
+		},
+		'git': {
+			'required': 'Git Url is required.'
+		},
+		'projectKey': {
+			'required': 'Project key is required.'
+		},
+		'resourcePath': {
+			'required': 'Path to resources is required.'
+		}
+	};
+
 	model: Project;
-	formats = [
-		{id: 'XML', name:'XML'},
-		{id: 'JSON', name:'JSON'},
-		{id: 'CSV', name:'CSV'},
-		{id: 'po', name:'po'}
-		];
 	disabled: boolean = false;
 	tmpBranchesInput: string;
 	assignableUsers: User[] = [];
 	assignableConverters: Converter[] = [];
+	projectForm: NgForm;
 }
