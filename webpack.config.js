@@ -56,7 +56,8 @@ module.exports = function makeWebpackConfig() {
         extensions: ['.ts', '.js', '.json', '.css', '.html'],
         alias: {
             jQuery: path.resolve(__dirname, 'node_modules/jquery'),
-            appConfig$: path.resolve(__dirname, 'src', 'app.config.json')
+            appConfig$: path.resolve(__dirname, 'src', 'app.config.json'),
+            appBasePath$: path.resolve(__dirname, 'app', 'js', 'Constants', 'AppBasePath.js')
         },
         modules: [root('src'), root('node_modules')]
     };

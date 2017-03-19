@@ -1,4 +1,4 @@
-import { API_URL } from './AppBasePath.js';
+import { API_URL }  from './AppBasePath.js';
 
 export class AppConfig {
 	public static get BASE_PATH(): string {

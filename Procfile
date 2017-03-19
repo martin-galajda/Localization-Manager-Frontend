@@ -1,1 +1,1 @@
-web: echo { \"port\": $PORT } && npm install && npm run start
+web: echo { \"port\": $PORT } && npm run start
