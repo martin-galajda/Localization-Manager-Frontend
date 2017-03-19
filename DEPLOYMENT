@@ -1,18 +1,46 @@
 Kroky potrebne pre uspesne nasadenie na lokalny server:
 1) Setup new project in Firebase console at the address https://console.firebase.google.com/
 
-2) After successful login, it is necessary to continue navigating to "project settings"(next to the "overview" is an icon, look to the top left corner). Afterwards, it is necessary to click on "service accounts" tab in navigation menu. In the tab is a button called "generate private key" which will generate credentials for the project. Then the user should automatically receive option to download credentials in form of a JSON. It is necessary to keep this JSON somewhere safe. Another option is navigating straight to the "https://console.firebase.google.com/project/<name_of_your_firebase_project>/settings/serviceaccounts/adminsdk". Be aware that user interface or link can change in future.
+2) After successful login, it is necessary to continue navigating to "project settings"
+(next to the "overview" is an icon, look to the top left corner).
+Afterwards, it is necessary to click on "service accounts" tab in navigation menu.
+In the tab is a button called "generate private key" which will generate credentials for the project.
+Then the user should automatically receive option to download credentials in form of a JSON.
+It is necessary to keep this JSON somewhere safe.
+Another option is navigating straight to the "https://console.firebase.google.com/project/<name_of_your_firebase_project>/settings/serviceaccounts/adminsdk".
+Be aware that user interface or link can change in future.
 
 3) Copy generated credentials(JSON file downloaded from firebase console) to conf/LocaleManagementPrototype.json.
 
-4) Continue by setting firebase.databaseUrl in conf/firebase.conf file to the url of firebase real-time database. Again, this can be found in firebase console.
+4) Continue by setting firebase.databaseUrl in conf/firebase.conf file to the url of firebase real-time database.
+Again, this can be found in firebase console.
 
 - viz (https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/firebase.conf)
 
 
 5b) --- PART FOR GENERATING OAUTH2 CREDENTIALS ---
+In this step you can use guide provided by google on URL: https://developers.google.com/identity/sign-in/web/devconsole-project .
+Navigate to URL https://console.developers.google.com
+In the upper navbar there should be the project drop-down.
+Click on the dropdown and create new project by selecting "Create a new project".
+Select the appropriate name for project and continue by clicking the "OK" button.
+Continue by selecting "Credentials" in left sidebar.
+Next, click on the "OAuth consent screen" in the Credentials tab menu.
+Enter field "Product name shown to users" as appropriate and save.
+Continue by selecting "Credentials" tab.
+Next, click on the "Create credentials" button and select "OAuth client ID".
+Continue by selecting "Web Application".
+Afterwards, input frontend url into "Authorized JavaScript origins"
+and backend url handling redirection (e.g. https://<host>/auth/google/handler) into "Authorized redirect URIs".
+Do not forget to click "Create" button and check the fields.
+You will be prompted with you client ID and client secret.
+You need to copy this into "conf/google.oauth2.conf" file inside backend application folder.
 
-6b) Input you OAuth2 credentials into conf/google.oauth2.conf. You should set google.oauth2.clientId to clientId which you received and google.oauth2.clientSecret to clientSecret which you have also received.
+
+
+6b)
+Input you OAuth2 credentials into conf/google.oauth2.conf.
+You should set google.oauth2.clientId to clientId which you received and google.oauth2.clientSecret to clientSecret which you have also received.
 
 6) Mozte dat activator run
 
