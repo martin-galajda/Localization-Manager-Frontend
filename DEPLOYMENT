@@ -1,0 +1,21 @@
+Kroky potrebne pre uspesne nasadenie na lokalny server:
+1) Setup new project in Firebase console at the address https://console.firebase.google.com/
+
+2) After successful login, it is necessary to continue navigating to "project settings"(next to the "overview" is an icon, look to the top left corner). Afterwards, it is necessary to click on "service accounts" tab in navigation menu. In the tab is a button called "generate private key" which will generate credentials for the project. Then the user should automatically receive option to download credentials in form of a JSON. It is necessary to keep this JSON somewhere safe. Another option is navigating straight to the "https://console.firebase.google.com/project/<name_of_your_firebase_project>/settings/serviceaccounts/adminsdk". Be aware that user interface or link can change in future.
+
+3) Copy generated credentials(JSON file downloaded from firebase console) to conf/LocaleManagementPrototype.json.
+
+4) Continue by setting firebase.databaseUrl in conf/firebase.conf file to the url of firebase real-time database. Again, this can be found in firebase console.
+
+- viz (https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/firebase.conf)
+
+
+5b) --- PART FOR GENERATING OAUTH2 CREDENTIALS ---
+
+6b) Input you OAuth2 credentials into conf/google.oauth2.conf. You should set google.oauth2.clientId to clientId which you received and google.oauth2.clientSecret to clientSecret which you have also received.
+
+6) Mozte dat activator run
+
+7) Na frontende staci npm start a tu
+https://github.com/Martinator112/prototype_localization_manager/blob/master/app/js/Constants/AppConfig.ts#L3
+zmenit ten string na localhost.
