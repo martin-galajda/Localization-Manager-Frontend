@@ -5,8 +5,9 @@ import { Converter } from '../model/entity/Converter';
 import {User} from "../model/entity/User";
 
 @Component({
+    moduleId: __filename,
     selector: 'user-list',
-    templateUrl: 'app/view/user-list.component.html'
+    templateUrl: '../../view/user-list.component.html'
 })
 
 export class UserListComponent implements OnInit {
@@ -28,8 +29,6 @@ export class UserListComponent implements OnInit {
     }
 
     makeAssignable(userId: string, setIsAssignable: boolean): void {
-        console.log(userId);
-        console.log(setIsAssignable);
         this.userService
             .updateUser(userId, setIsAssignable)
             .subscribe(

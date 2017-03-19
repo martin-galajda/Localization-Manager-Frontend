@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Converter } from '../model/entity/Converter';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { AppConfig } from '../Constants/AppConfig';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 import 'rxjs/Rx';
 
@@ -12,9 +13,16 @@ export class ConverterService {
     constructor(private http: Http) { }
 
     getConverters(): Observable<Converter[]> {
-        return this.http.get(AppConfig.CONVERTER_API_ENDPOINT)
+        this.http.get(AppConfig.CONVERTER_API_ENDPOINT)
             .map(this.extractData)
-            .catch(this.handleError);
+            .catch(this.handleError)
+            .subscribe(this.updateDataSource.bind(this));
+
+        return this.dataSource.asObservable();
+    }
+
+    updateDataSource(converters: Converter[]) {
+        this.dataSource.next(converters);
     }
 
     getConverter(id: string): Observable<Converter> {
@@ -55,4 +63,6 @@ export class ConverterService {
 
         return Observable.throw('error');
     }
+
+    dataSource = new ReplaySubject<Converter[]>(2);
 }

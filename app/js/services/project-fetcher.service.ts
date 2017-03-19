@@ -6,18 +6,28 @@ import { AppConfig } from '../Constants/AppConfig';
 
 import 'rxjs/Rx';
 
+import { ReplaySubject } from 'rxjs/ReplaySubject';
+
 import { Observable } from 'rxjs/Observable';
-import {ProjectHistory} from "../model/entity/ProjectHistory";
-import {FieldChange} from "../model/FieldChange";
+import { ProjectHistory } from "../model/entity/ProjectHistory";
+import { FieldChange } from "../model/FieldChange";
 
 @Injectable()
 export class ProjectFetcherService {
-	constructor(private http: Http) { }
+	constructor(private http: Http) {}
 
 	getProjects(): Observable<Project[]> {
-		return this.http.get(AppConfig.GET_PROJECTS_API_ENDPOINT)
+		this.http.get(AppConfig.GET_PROJECTS_API_ENDPOINT)
 			.map(this.extractData)
-			.catch(this.handleError);
+			.catch(this.handleError)
+			.subscribe(this.updateDataSource.bind(this));
+
+
+		return this.dataSource.asObservable();
+	}
+
+	updateDataSource(projects: Project[]) {
+		this.dataSource.next(projects);
 	}
 
 	getProject(id: string): Observable<Project> {
@@ -60,4 +70,6 @@ export class ProjectFetcherService {
 
 		return Observable.throw('error');
 	}
+
+	dataSource: ReplaySubject<Project[]> = new ReplaySubject<Project[]>(2);;
 }

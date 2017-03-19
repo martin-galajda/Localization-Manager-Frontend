@@ -5,8 +5,10 @@ import { Project } from '../model/entity/Project';
 import { FilterPipe } from '../filters/filter.pipe';
 
 @Component({
+	moduleId: __filename,
 	selector: 'project-list',
-	templateUrl: 'app/view/project-list.component.html'
+	templateUrl: '../../view/project-list.component.html',
+	styleUrls: ['../../styles/project-list.component.css']
 })
 
 export class ProjectListComponent implements OnInit {

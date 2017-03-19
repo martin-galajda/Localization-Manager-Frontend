@@ -1,9 +1,10 @@
 import {Component, trigger, state, style, transition, animate, EventEmitter, Output} from '@angular/core';
 
 @Component({
+    moduleId: __filename,
     selector: 'sign-in-box',
-    templateUrl: 'app/view/sign-in-box.component.html',
-    styleUrls: ['app/styles/sign-in-box.component.css'],
+    templateUrl: '../../view/sign-in-box.component.html',
+    styleUrls: ['../../styles/sign-in-box.component.css'],
     animations: [
         trigger('flyInOut', [
             state('in', style({

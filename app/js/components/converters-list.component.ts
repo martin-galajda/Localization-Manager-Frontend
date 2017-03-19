@@ -4,8 +4,10 @@ import { ConverterService } from '../services/converter.service';
 import { Converter } from '../model/entity/Converter';
 
 @Component({
+    moduleId: __filename,
     selector: 'converter-list',
-    templateUrl: 'app/view/converter-list.component.html'
+    templateUrl: '../../view/converter-list.component.html',
+    styleUrls: ['../../styles/project-list.component.css']
 })
 
 export class ConverterListComponent implements OnInit {

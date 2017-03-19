@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 import {ProjectHistory} from "../model/entity/ProjectHistory";
 
 @Component({
-	moduleId: module.id,
+	moduleId: __filename,
 	selector: 'project-detail',
 	templateUrl: '../../view/project-detail.component.html',
 	styleUrls: ['../../styles/detail.component.css']
@@ -39,7 +39,6 @@ export class ProjectDetailComponent implements OnInit {
 
 	delete(): void {
 		this.projectFetcher.deleteProject(this.project.id).subscribe(res => {
-			console.log(res);
 			this.router.navigate(['project-list']);
 		});
 	}

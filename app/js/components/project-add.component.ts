@@ -9,7 +9,7 @@ import {Converter} from "../model/entity/Converter";
 import {NgForm} from "@angular/forms";
 
 @Component({
-	moduleId: module.id,
+	moduleId: __filename,
 	selector: 'project-add',
 	templateUrl: '../../view/project-add.component.html',
 	styleUrls: ['../../styles/form.component.css']
@@ -63,8 +63,6 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 	}
 
 	onAssigneeSelected(userId : string): void {
-		console.log(this.projectForm.form);
-		console.log(this.projectForm);
 		this.model.assignee = this.assignableUsers.find(user => user.id === userId);
 	}
 
@@ -94,13 +92,9 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 			// clear previous error message (if any)
 			this.formErrors[field] = '';
 			const control = form.get(field);
-			console.log(control);
-			console.log(field);
 			if (control && control.touched && control.invalid) {
 				const messages = this.validationMessages[field];
-				console.log(`messages: ${messages}`);
 				for (const key in control.errors) {
-					console.log(`key: ${key}`);
 					this.formErrors[field] += messages[key] + ' ';
 				}
 			}

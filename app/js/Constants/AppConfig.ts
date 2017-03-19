@@ -1,6 +1,8 @@
+import { API_URL } from './AppBasePath.js';
+
 export class AppConfig {
 	public static get BASE_PATH(): string {
-		return 'https://glacial-hollows-97055.herokuapp.com/';
+		return API_URL;
 
 		//return 'http://translationmanager.fwd.wf/';
 	}

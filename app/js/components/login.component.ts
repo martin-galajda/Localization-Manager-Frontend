@@ -7,8 +7,8 @@ import {AuthService} from "../services/auth.service";
 
 @Component({
     selector: 'login',
-    templateUrl: 'app/view/login.component.html',
-    styleUrls: ['app/styles/login.component.css'],
+    templateUrl: '../../view/login.component.html',
+    styleUrls: ['../../styles/login.component.css'],
     animations: [
         trigger('animateOpacity', [
             state('fullOpacity', style({

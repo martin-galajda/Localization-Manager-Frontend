@@ -9,6 +9,7 @@ import 'rxjs/Rx';
 
 import { Observable } from 'rxjs/Observable';
 import { User } from "../model/entity/User";
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class AuthService {
@@ -27,7 +28,7 @@ export class AuthService {
         let options = new RequestOptions({headers: headers, withCredentials: true});
 
         return this.http.get(AppConfig.GET_LOGGED_USER_URL, options)
-            .map(this.extractData)
+            .map(this.extractData.bind(this))
             .catch(this.handleError);
     }
 
@@ -47,12 +48,16 @@ export class AuthService {
 
         return this.http
             .get(AppConfig.LOGOUT_URL, options)
-            .map(res => res);
+            .map(res => {
+                this.isInitialized = false;
+                this.loggedUser = null;
+
+                return res;
+            });
     }
 
     private extractData(res: Response): User {
         this.loggedUser = res.json();
-        console.log('logged user : ', this.loggedUser);
         this.isInitialized = true;
         return this.loggedUser;
     }
@@ -61,7 +66,6 @@ export class AuthService {
         this.loggedUser = null;
         this.isInitialized = true;
 
-        console.log('error', response);
 
         return Observable.throw('not authenticated');
     }

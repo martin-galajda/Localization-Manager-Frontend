@@ -8,7 +8,7 @@ import { Converter } from "../model/entity/Converter";
 import { ConverterService } from "../services/converter.service";
 
 @Component({
-	moduleId: module.id,
+	moduleId: __filename,
 	selector: 'project-edit',
 	templateUrl: '../../view/project-edit.component.html',
 	styleUrls: ['../../styles/form.component.css']

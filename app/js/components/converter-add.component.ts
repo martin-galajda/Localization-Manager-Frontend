@@ -4,7 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ConverterService } from '../services/converter.service';
 import { Converter } from "../model/entity/Converter";
 @Component({
-    moduleId: module.id,
+    moduleId: __filename,
     selector: 'converter-add',
     templateUrl: '../../view/converter-add.component.html',
     styleUrls: ['../../styles/form.component.css']

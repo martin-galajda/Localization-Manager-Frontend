@@ -5,9 +5,11 @@ import { ProjectFetcherService } from './js/services/project-fetcher.service';
 import {Router, ActivatedRoute} from "@angular/router";
 import { AuthService } from "./js/services/auth.service";
 import 'rxjs/Rx';
+import './public/style/font-awesome.min.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 @Component({
-	moduleId: module.id,
+	moduleId: __filename,
 	selector: 'app',
 	templateUrl: './view/app.component.html',
 	styleUrls: ['./styles/app.component.css']
@@ -65,6 +67,7 @@ export class AppComponent implements OnInit {
 		this.authService.logout().subscribe(jsonResponse => {
 			console.log(jsonResponse);
 			this.loggedUser = null;
+			this.isLoggedUser = false;
 			this.router.navigate(['/login']);
 		});
 	}

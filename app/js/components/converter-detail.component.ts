@@ -4,7 +4,7 @@ import {ConverterService} from "../services/converter.service";
 import {Converter} from "../model/entity/Converter";
 
 @Component({
-    moduleId: module.id,
+    moduleId: __filename,
     selector: 'converter-detail',
     templateUrl: '../../view/converter-detail.component.html',
     styleUrls: ['../../styles/detail.component.css']
@@ -38,7 +38,6 @@ export class ConverterDetailComponent implements OnInit {
         this.converterService
             .deleteConverter(this.converter.id)
             .subscribe(res => {
-                console.log(res);
                 this.router.navigate(['converter-list']);
             });
     }

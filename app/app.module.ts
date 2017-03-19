@@ -9,7 +9,6 @@ import { ProjectDetailComponent } 	from './js/components/project-detail.componen
 import { ProjectListComponent } 	from './js/components/project-list.component';
 import { ProjectEditComponent } 	from './js/components/project-edit.component';
 import { ProjectAddComponent } 		from './js/components/project-add.component';
-import { SignInModalComponent } 	from './js/components/sign-in-modal.component';
 import { LoginComponent } 			from "./js/components/login.component";
 import { UserListComponent } 			from "./js/components/user-list.component";
 import { ConverterListComponent } 			from "./js/components/converters-list.component";
@@ -30,8 +29,6 @@ import { ConverterService } 				from "./js/services/converter.service";
 import { UserService } 				from "./js/services/user.service";
 import { AdminGuard } from "./js/services/admin-guard.service";
 
-
-
 const cookieStrategyFactory = () => {
 	return new CookieXSRFStrategy('PLAY_SESSION', 'X-Requested-With');
 };
@@ -51,7 +48,6 @@ const cookieStrategyFactory = () => {
 		ProjectListComponent,
 		ProjectEditComponent,
 		ProjectAddComponent,
-		SignInModalComponent,
 		ConverterListComponent,
 		ConverterAddComponent,
 		ConverterDetailComponent,

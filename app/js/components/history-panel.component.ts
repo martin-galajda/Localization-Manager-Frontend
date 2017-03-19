@@ -2,11 +2,11 @@ import {Component, Injectable, trigger, state, transition, style, animate, OnIni
 import {FieldChange} from "../model/FieldChange";
 import {Observable} from "rxjs";
 import {ProjectHistory} from "../model/entity/ProjectHistory";
-declare var moment : any;
+import moment from 'moment';
 
 
 @Component({
-    moduleId: module.id,
+    moduleId: __filename,
     selector: 'history-panel',
     templateUrl: '../../view/history-panel.component.html',
     styleUrls: ['../../styles/history-panel.component.css'],
@@ -36,7 +36,6 @@ export class HistoryPanelComponent implements OnInit
         this.getChangedValues(this.lastLoadedId).subscribe((history) => {
             this.history = history;
             this.panelHistoryChanges = this.transformHistoryToPanelMessages(history);
-            console.log("changedValues: ", history);
         });
     }
 
@@ -75,7 +74,6 @@ export class HistoryPanelComponent implements OnInit
             this.getChangedValues(this.lastLoadedId).subscribe((additionalHistory) => {
                 this.history = this.history.concat(additionalHistory);
                 this.panelHistoryChanges = this.panelHistoryChanges.concat(this.transformHistoryToPanelMessages(additionalHistory));
-                console.log("changedValues: ", additionalHistory);
             });
         }
 
