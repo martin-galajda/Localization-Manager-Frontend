@@ -2,7 +2,7 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
     "lite": "lite-server",
     "postinstall": "npm install typings",
     "tsc": "tsc",
