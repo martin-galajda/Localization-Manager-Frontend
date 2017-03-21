@@ -1,4 +1,4 @@
-﻿<h1>DEPLOYMENT STEPS</h1>
+<h1><em>DEPLOYMENT STEPS</em></h1>
 
 <h1> SETUPING FIREBASE </h1>
 <ul>
@@ -28,11 +28,12 @@ In this step you can use guide provided by google on URL: https://developers.goo
     Select the appropriate name for project and continue by clicking the "OK" button.
     Continue by selecting "Credentials" in left sidebar.
     Next, click on the "OAuth consent screen" in the Credentials tab menu.
-    Choose your product(project) name and fill it into field "Product name shown to users" and save.Continue by selecting "Credentials" tab. Next, click on the "Create credentials" button and select "OAuth client ID".
+    Choose your product(project) name and fill it into field "Product name shown to users" and save.Continue by selecting         "Credentials" tab. Next, click on the "Create credentials" button and select "OAuth client ID".
     Continue by selecting "Web Application".
     Afterwards, fill in frontend url into "Authorized JavaScript origins" section(e.g. https://myFrontEndServer.com).
-    Continue by filling in backend url handling redirection (e.g. https://<host>/auth/google/handler) into "Authorized redirect URIs" section.
+    Continue by filling in backend url handling redirection (e.g. https://<host>/auth/google/handler) into "Authorized           redirect URIs" section.
     Do not forget to click "Create" button and check the fields.
+  
   </li>
   <li>
     You will be prompted with you client ID and client secret.
