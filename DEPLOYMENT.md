@@ -49,8 +49,13 @@ In this step you can use guide provided by google on URL: https://developers.goo
   <li>
   Afterwards, fill in frontend url into "Authorized JavaScript origins" section(e.g. https://myFrontEndServer.com).
   </li>
-  Continue by filling in backend url handling redirection (e.g. https://myBackendHost>/auth/google/handler) into  "Authorized redirect URIs" section. Do not forget to click "Create" button and check the fields. Also fill in this url into 
-  "authentication.conf" inside <em>conf</em> folder in BACKEND application(https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/authentication.conf).
+  <li>
+  Continue by filling in backend url handling redirection (e.g. https://myBackendHost/auth/google/handler) into  "Authorized redirect URIs" section. The redirect URI need to be in this format: [scheme]://[host]/auth/google/handler.
+  </li>
+  <li>
+  Do not forget to click "Create" button and check the fields. Also fill in this url into 
+  "authentication.conf" inside <em>conf</em> folder in BACKEND application (https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/authentication.conf).
+  </li>
   <li>
   You will be prompted with you client ID and client secret.
   You need to copy this into "conf/google.oauth2.conf" file inside BACKEND application folder.
