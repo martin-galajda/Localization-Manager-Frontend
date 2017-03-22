@@ -53,7 +53,7 @@ In this step you can use guide provided by google on URL: https://developers.goo
   Continue by filling in backend url handling redirection (e.g. https://myBackendHost/auth/google/handler) into  "Authorized redirect URIs" section. The redirect URI need to be in this format: [scheme]://[host]/auth/google/handler.
   </li>
   <li>
-  Do not forget to click "Create" button and check the fields. Also fill in this url into 
+  Do not forget to click "Create" button and check the fields. Also fill in this redirect URI into 
   "authentication.conf" inside <em>conf</em> folder in BACKEND application (https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/authentication.conf).
   </li>
   <li>
