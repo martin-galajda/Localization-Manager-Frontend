@@ -79,7 +79,5 @@ In this step you can use guide provided by google on URL: https://developers.goo
     Locate "http.client.conf" file inside "conf" folder in BACKEND application.
     Fill in the URL of frontend application.
     File located on github: https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/http.client.conf
-    Locate "authentication.conf"
-   
   </li>
 </ul>
