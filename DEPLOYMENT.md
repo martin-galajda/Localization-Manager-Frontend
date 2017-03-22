@@ -2,12 +2,13 @@
 
 <h1> SETUPING FIREBASE </h1>
 <ul>
-  <li>Setup new project in Firebase console at the address https://console.firebase.google.com/</li>
-  <li>After successful login, it is necessary to continue navigating to "project settings" (next to the "overview" is an icon, look to the top left corner).
-Afterwards, it is necessary to click on "service accounts" tab in navigation menu.
-In the tab is a button called "generate private key" which will generate credentials for the project.
-Then the user should automatically receive an option to download credentials in form of a JSON file. It is necessary to keep this JSON somewhere safe.
-Another option is navigating straight to the "https://console.firebase.google.com/project/<name_of_your_firebase_project>/settings/serviceaccounts/adminsdk".
+  <li>Navigate to https://console.firebase.google.com/ and sign in</li>
+  <li>Click "create new project" button and fill in required fields </li>
+  <li>After successfully creating project, it is necessary to continue navigating to "project settings" (next to the "overview" is an icon, look to the top left corner).
+  <li>Afterwards, it is necessary to click on "service accounts" tab in navigation menu.</li>
+  <li>In the tab is a button called "generate private key" which will generate credentials for the project.</li>
+  <li>Then the user should automatically receive an option to download credentials in form of a JSON file. It is necessary to keep this JSON somewhere safe.</li>
+  <li>Another option is navigating straight to the <strong>https://console.firebase.google.com/project/name_of_your_firebase_project/settings/serviceaccounts/adminsdk</strong>.
 Be aware that user interface or link can change in future.</li>
   <li>Copy generated credentials(JSON file downloaded from firebase console) to conf/LocalizationManagerCredentials.json inside BACKEND application folder.
 </li>
@@ -23,22 +24,38 @@ In this step you can use guide provided by google on URL: https://developers.goo
 <ul>
   <li>
     Navigate to URL https://console.developers.google.com
-    In the upper navbar there should be the project drop-down.
-    Click on the dropdown and create new project by selecting "Create a new project".
-    Select the appropriate name for project and continue by clicking the "OK" button.
-    Continue by selecting "Credentials" in left sidebar.
-    Next, click on the "OAuth consent screen" in the Credentials tab menu.
-    Choose your product(project) name and fill it into field "Product name shown to users" and save.Continue by selecting         "Credentials" tab. Next, click on the "Create credentials" button and select "OAuth client ID".
-    Continue by selecting "Web Application".
-    Afterwards, fill in frontend url into "Authorized JavaScript origins" section(e.g. https://myFrontEndServer.com).
-    Continue by filling in backend url handling redirection (e.g. https://<host>/auth/google/handler) into "Authorized           redirect URIs" section.
-    Do not forget to click "Create" button and check the fields.
+  </li>
   
+  <li>
+    In the upper navigation menu there should be a project dropdown.
+    Click on the dropdown and create new project by selecting "Create a new project".
+  </li>
+    
+  <li>
+    Select the appropriate name for project and continue by clicking the "OK" button.
   </li>
   <li>
-    You will be prompted with you client ID and client secret.
-    You need to copy this into "conf/google.oauth2.conf" file inside BACKEND application folder.
+  Continue by selecting "Credentials" in left sidebar.
   </li>
+
+  <li>
+  Next, click on the "OAuth consent screen" in the Credentials tab menu.
+  </li>
+  Choose your product(project) name and fill it into field "Product name shown to users" and save.
+  <li>
+  Continue by selecting "Credentials" tab. Next, click on the "Create credentials" button and select "OAuth client ID".
+  </li>
+  Continue by selecting "Web Application".
+  <li>
+  Afterwards, fill in frontend url into "Authorized JavaScript origins" section(e.g. https://myFrontEndServer.com).
+  </li>
+  Continue by filling in backend url handling redirection (e.g. https://myBackendHost>/auth/google/handler) into  "Authorized redirect URIs" section. Do not forget to click "Create" button and check the fields. Also fill in this url into 
+  "authentication.conf" inside <em>conf</em> folder in BACKEND application(https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/authentication.conf).
+  <li>
+  You will be prompted with you client ID and client secret.
+  You need to copy this into "conf/google.oauth2.conf" file inside BACKEND application folder.
+  </li>
+    
 </ul>
 
 
@@ -46,7 +63,7 @@ In this step you can use guide provided by google on URL: https://developers.goo
 
 <ul>
   <li>
-    Locate "app.config.json" file inside src folder in FRONTEND application.
+    Locate "app.config.json" file inside <em>src</em> folder in FRONTEND application.
     Fill in the URL of backend application.
   </li>
 </ul>
@@ -57,6 +74,7 @@ In this step you can use guide provided by google on URL: https://developers.goo
     Locate "http.client.conf" file inside "conf" folder in BACKEND application.
     Fill in the URL of frontend application.
     File located on github: https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/http.client.conf
+    Locate "authentication.conf"
    
   </li>
 </ul>
