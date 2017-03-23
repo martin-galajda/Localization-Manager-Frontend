@@ -20,7 +20,7 @@ export class UserService {
     updateUser(userId: string, isAssignable: boolean): Observable<User> {
 
         let headers = new Headers({ 'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers});
+        let options = new RequestOptions({headers: headers, withCredentials: true});
 
         return this.http.post(AppConfig.USER_API_ENDPOINT + "/" + userId, {
                 isAssignable: isAssignable
@@ -32,7 +32,7 @@ export class UserService {
     updateUserRole(userId: string, userRole: string): Observable<User> {
 
         let headers = new Headers({ 'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers});
+        let options = new RequestOptions({headers: headers, withCredentials: true});
 
         return this.http.put(AppConfig.USER_API_ENDPOINT + "/" + userId + "/role", {
                 role: userRole
