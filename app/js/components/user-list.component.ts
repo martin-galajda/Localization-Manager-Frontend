@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { Converter } from '../model/entity/Converter';
 import {User} from "../model/entity/User";
+import  * as UserRole from '../Constants/UserRole';
 
 @Component({
     moduleId: __filename,
@@ -36,6 +37,24 @@ export class UserListComponent implements OnInit {
                     this.users = this.users.map(user => {
                         if (user.id === userId) {
                             user.isAssignable = setIsAssignable;
+                        }
+                        return user;
+                    });
+                },
+                (err) => {
+                    console.error(err);
+                }
+        );
+    }
+
+    confirmUser(userId: string): void {
+        this.userService
+            .updateUserRole(userId, UserRole.USER)
+            .subscribe(
+                () => {
+                    this.users = this.users.map(user => {
+                        if (user.id === userId) {
+                            user.role = UserRole.USER;
                         }
                         return user;
                     });

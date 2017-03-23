@@ -24,6 +24,9 @@
                 <th>
                     Action
                 </th>
+                <th>
+                    Confirm user
+                </th>
             </tr>
             </thead>
 
@@ -39,6 +42,18 @@
                     >
                         {{user.isAssignable ? "Make unassignable" : "Make assignable"}}
                     </button>
+                </td>
+                <td *ngIf="user.role === 'guest'">
+                    <button type="button"
+                            class="btn btn-primary"
+                            style="width: 100%"
+                            (click)="confirmUser(user.id)"
+                    >
+                        Confirm user
+                    </button>
+                </td>
+                <td *ngIf="user.role !== 'guest'">
+                    Already confirmed
                 </td>
             </tr>
             </tbody>
