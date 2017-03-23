@@ -1,6 +1,6 @@
-<h1><em>DEPLOYMENT STEPS</em></h1>
+# DEPLOYMENT STEPS
 
-<h1> SETUPING FIREBASE </h1>
+### SETUPING FIREBASE
 <ul>
   <li>Navigate to https://console.firebase.google.com/ and sign in</li>
   <li>Click "create new project" button and fill in required fields </li>
