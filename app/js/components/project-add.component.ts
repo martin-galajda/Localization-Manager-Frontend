@@ -79,7 +79,8 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 	formChanged() {
 		this.projectForm = this.currentForm;
 		if (this.projectForm) {
-			this.projectForm.valueChanges
+			this.projectForm
+				.valueChanges
 				.subscribe(data => this.onValueChanged(data));
 		}
 	}
@@ -98,8 +99,6 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 					this.formErrors[field] += messages[key] + ' ';
 				}
 			}
-
-			console.log(this.formErrors);
 		}
 	}
 

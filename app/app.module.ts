@@ -2,7 +2,7 @@ import { NgModule }					from '@angular/core';
 import { BrowserModule }			from '@angular/platform-browser';
 import { AppComponent }				from './app.component';
 import { FormsModule } 				from '@angular/forms';
-import {HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy}    from '@angular/http';
+import {HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy, RequestOptions}    from '@angular/http';
 import { InfiniteScrollModule } from "angular2-infinite-scroll";
 
 import { ProjectDetailComponent } 	from './js/components/project-detail.component';
@@ -28,6 +28,7 @@ import { AuthGuard } 				from "./js/services/auth-guard.service";
 import { ConverterService } 				from "./js/services/converter.service";
 import { UserService } 				from "./js/services/user.service";
 import { AdminGuard } from "./js/services/admin-guard.service";
+import { CustomRequestOptions } from "./js/CustomRequestOptions";
 
 const cookieStrategyFactory = () => {
 	return new CookieXSRFStrategy('PLAY_SESSION', 'X-Requested-With');
@@ -68,6 +69,10 @@ const cookieStrategyFactory = () => {
 		{
 			provide: XSRFStrategy,
 			useValue: cookieStrategyFactory()
+		},
+		{
+			provide: RequestOptions,
+			useClass: CustomRequestOptions
 		}
 	],
 	bootstrap: [
