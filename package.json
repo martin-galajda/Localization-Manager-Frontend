@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node server.js",
-    "lite": "lite-server",
     "postinstall": "npm install typings",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings",
     "server": "webpack-dev-server --inline --progress --port 3005",
-    "build": "webpack --progress --profile --bail"
+    "build": "./node_modules/.bin/webpack --progress --profile --bail"
   },
   "license": "ISC",
   "dependencies": {
