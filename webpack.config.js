@@ -44,7 +44,7 @@ module.exports = function makeWebpackConfig() {
     };
 
     if (!isProd) {
-        config.output.publicPath ='http://localhost:3005/';
+        config.output.publicPath ='https://localhost:3005/';
     }
 
     /**
