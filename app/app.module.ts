@@ -2,7 +2,7 @@ import { NgModule }					from '@angular/core';
 import { BrowserModule }			from '@angular/platform-browser';
 import { AppComponent }				from './app.component';
 import { FormsModule } 				from '@angular/forms';
-import {HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy, RequestOptions}    from '@angular/http';
+import { HttpModule, JsonpModule, XSRFStrategy, CookieXSRFStrategy, RequestOptions } from '@angular/http';
 import { InfiniteScrollModule } from "angular2-infinite-scroll";
 
 import { ProjectDetailComponent } 	from './js/components/project-detail.component';
@@ -17,6 +17,7 @@ import { ConverterDetailComponent } 			from "./js/components/converter-detail.co
 import { ConverterEditComponent } 			from "./js/components/converter-edit.component";
 import { SignInBoxComponent } from "./js/components/sign-in-box.component";
 import { HistoryPanelComponent } from "./js/components/history-panel.component";
+import { NotConfirmedComponent } from "./js/components/not-confirmed.component";
 
 import { FilterPipe } 				from './js/filters/filter.pipe';
 
@@ -57,7 +58,8 @@ const cookieStrategyFactory = () => {
 		UserListComponent,
 		FilterPipe,
 		SignInBoxComponent,
-		HistoryPanelComponent
+		HistoryPanelComponent,
+		NotConfirmedComponent
 	],
 	providers: [
 		ProjectFetcherService,

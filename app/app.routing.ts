@@ -12,6 +12,7 @@ import { LoginComponent } from "./js/components/login.component";
 import { UserListComponent } from "./js/components/user-list.component";
 import { ConverterDetailComponent } from "./js/components/converter-detail.component";
 import { ConverterEditComponent } from "./js/components/converter-edit.component";
+import { NotConfirmedComponent } from "./js/components/not-confirmed.component";
 import {AdminGuard} from "./js/services/admin-guard.service";
 
 const appRoutes: Routes = [
@@ -69,6 +70,10 @@ const appRoutes: Routes = [
 		path: 'project/edit/:id',
 		canActivate: [AuthGuard],
 		component: ProjectEditComponent
+	},
+	{
+		path: 'not-confirmed',
+		component: NotConfirmedComponent
 	}
 ];
 
