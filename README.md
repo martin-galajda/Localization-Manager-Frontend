@@ -11,7 +11,7 @@
 - Create account on heroku
 - Install heroku locally - tutorial is here https://devcenter.heroku.com/articles/heroku-cli
 - Enter `heroku login` from the command line and enter credentials
-- In the root folder enter `heroku create` (and save the url of deployed application, it will be printed out to standard output -e.g. terminal)
+- In the root folder enter `heroku create` (and save the url of deployed application, it will be printed out to standard output -e.g. terminal, or you can later find it on their website in the dashboard section)
 - Then proceed with the step configuring application
 - Then make sure everything is added to git -> `run git add . && git commit -m "Heroku deployment"`
 - `git push heroku master`
