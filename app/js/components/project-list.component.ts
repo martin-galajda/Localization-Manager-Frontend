@@ -39,16 +39,6 @@ export class ProjectListComponent implements OnInit {
 		this.router.navigate(link);
 	}
 
-	getReadableProjectStatus(status: Number): string {
-		switch (status) {
-			case 1:
-				return "In progress";
-			case 2:
-				return "Completed"
-			default:
-				return "None"
-		}
-	}
 
 	showSignInModal: boolean;
 	projects: Project[];

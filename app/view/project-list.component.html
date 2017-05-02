@@ -26,7 +26,6 @@
 					Git URL
 				</th>
 
-
 				<th>
 					Path to resources
 				</th>
@@ -42,6 +41,10 @@
 				<th>
 					Word count
 				</th>
+
+				<th>
+					Estimated price
+				</th>
 			</tr>
 			</thead>
 
@@ -53,11 +56,14 @@
 				<td *ngIf="!project.hidden">{{project.assignee ? project.assignee.name : "No assignee"}}</td>
 				<td *ngIf="!project.hidden"
 					[ngClass]="{
-						'status-done': project.status === 2,
-						'status-in-progress': project.status === 1
+						'status-done': project.status === 'Completed',
+						'status-in-progress': project.status === 'In progress'
 					}"
-				>{{getReadableProjectStatus(project.status)}}</td>
+				>{{project.status}}</td>
 				<td *ngIf="!project.hidden" class="badge-column"><span class="badge">{{project.wordCount}}</span></td>
+				<td *ngIf="!project.hidden" class="badge-column"><span class="badge">
+					{{project.price}} {{project.currency}}
+				</span></td>
 			</tr>
 			</tbody>
 

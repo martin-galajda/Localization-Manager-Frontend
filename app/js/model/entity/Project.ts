@@ -16,4 +16,6 @@ export class Project {
 	hashMapIdentifier: string;
 	status: string;
 	wordCount: number;
+	price: number;
+	currency: string;
 }
