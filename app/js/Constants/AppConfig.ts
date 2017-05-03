@@ -1,8 +1,8 @@
-import { API_URL }  from './AppBasePath.js';
+const config = require('appConfig');
 
 export class AppConfig {
 	public static get BASE_PATH(): string {
-		return API_URL;
+		return config.apiUrl;
 
 		//return 'http://translationmanager.fwd.wf/';
 	}
