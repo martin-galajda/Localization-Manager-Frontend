@@ -1,22 +1,19 @@
-<b>1. ENVIRONMENT REQUIREMENTS</b>
-<div>
-To successfully build and run application it is required to have node(v4.x.x or higher) and npm(3.x.x or higher) installed on your computer. If you want to check which version you are using then run <code>node -v</code> and <code>npm -v</code>.
-</div>
+## Environment requirements
+- Have node(preferably v6.10.2 or higher) and npm(preferably 3.10.10 or higher) installed
 
-<br/>
-<b>2. INSTALL PACKAGES</b>
+## Configuring application
+- Run `npm install`
+- Locate "app.config.json" file inside src folder. Fill in the URL of the deployed backend application.
+- Run `npm run build`
+- `git add . && git commit -m "Compiling src folder to dist for deployment"`
 
-<div>
-Run <code>npm install</code> to download and install required packages.
-</div>
+## Deployment to HEROKU
+- Create account on heroku - https://signup.heroku.com/
+- Install heroku locally - tutorial is here https://devcenter.heroku.com/articles/heroku-cli
+- Enter `heroku login` from the command line and enter credentials
+- In the root folder enter `heroku create` (and save the url of deployed application, it will be printed out to standard output -e.g. terminal, or you can later find it on their website in the dashboard section)
+- Then proceed with the step configuring application
+- Then make sure everything is added to git -> `run git add . && git commit -m "Heroku deployment"`
+- `git push heroku master`
+- Application should be deployed :)
 
-<div>
-If the typings folder doesn't show up after running <code>npm install</code>, you'll need to install it manually with the command: <div><code>npm run typings install.</code></div>
-</div>
-
-<br/>
-<b>3. BUILD AND RUN APPLICATION</b>
-
-<div>
-<code>npm start</code> 
-</div>

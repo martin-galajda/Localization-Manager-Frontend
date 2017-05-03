@@ -8,7 +8,7 @@
     "tsc:w": "tsc -w",
     "typings": "typings",
     "server": "webpack-dev-server --inline --progress --port 3005",
-    "build": "./node_modules/.bin/webpack --progress --profile --bail"
+    "build": "webpack --progress --profile --bail --display-error-details"
   },
   "license": "ISC",
   "dependencies": {
