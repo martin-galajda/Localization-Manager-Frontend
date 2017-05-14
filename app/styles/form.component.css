@@ -101,3 +101,12 @@ form input.form-control:focus {
     color: #999;
     margin-right: 5px;
 }
+
+.form-group .form-control {
+    border-radius: 0;
+}
+
+.ng-invalid.ng-touched {
+    border-bottom: 1px solid #a94442;
+    border-radius: 0;
+}
