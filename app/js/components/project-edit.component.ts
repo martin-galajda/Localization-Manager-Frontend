@@ -39,8 +39,12 @@ export class ProjectEditComponent implements OnInit {
 		this.projectFetcher
 			.getProject(projectId)
 			.subscribe(project => {
-				this.model = project;
-				this.selectedUser = project.assignee.name;
+				if (project) {
+					this.model = project;
+					this.model.branches = this.model.branches ? this.model.branches : [];
+					this.selectedUser = project.assignee ? project.assignee.name : null;
+					this.selectedConverter = project.converter ? project.converter.name : null;
+				}
 			});
 	}
 
@@ -48,7 +52,6 @@ export class ProjectEditComponent implements OnInit {
 		this.converterService.getConverters().subscribe(
 			converters => {
 				this.assignableConverters = converters;
-				this.selectedConverter = this.model.converter.name;
 			},
 			() => {
 				throw "Error fetching converters";

@@ -52,7 +52,7 @@
 				</div>
 				<div>
 					<label><span>Branches</span></label>
-					<p>{{project.branches.join(', ')}}</p>
+					<p>{{project.branches && project.branches.join ? project.branches.join(', ') : ''}}</p>
 				</div>
 
 				<div>

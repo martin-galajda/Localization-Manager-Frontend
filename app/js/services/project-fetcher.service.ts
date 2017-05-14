@@ -21,13 +21,13 @@ export class ProjectFetcherService {
 			.map(this.extractData)
 			.catch(this.handleError)
 			.subscribe(this.updateDataSource.bind(this));
-
-
 		return this.dataSource.asObservable();
 	}
 
 	updateDataSource(projects: Project[]) {
-		this.dataSource.next(projects);
+		if (projects) {
+			this.dataSource.next(projects);
+		}
 	}
 
 	getProject(id: string): Observable<Project> {

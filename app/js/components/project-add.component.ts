@@ -43,7 +43,7 @@ export class ProjectAddComponent implements OnInit
 			() => {
 				throw "Error fetching converters";
 			}
-		)
+		);
 
 		this.createForm();
 	}
@@ -79,10 +79,14 @@ export class ProjectAddComponent implements OnInit
 
 		if (assigneeId) {
 			newProject.assignee = this.assignableUsers.find(user => user.id === assigneeId);
+		} else {
+			delete newProject.assignee;
 		}
 
 		if (converterId) {
 			newProject.converter = this.assignableConverters.find(converter => converter.id === converterId);
+		} else {
+			delete newProject.converter;
 		}
 
 		return newProject;

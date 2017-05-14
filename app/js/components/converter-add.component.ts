@@ -1,6 +1,5 @@
-import { Project } from '../model/entity/Project';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ConverterService } from '../services/converter.service';
 import { Converter } from "../model/entity/Converter";
 @Component({
@@ -17,13 +16,6 @@ export class ConverterAddComponent
         private converterService: ConverterService)
     {
         this.model = new Converter();
-        this.options = [];
-        for (let i = 0; i < 100; ++i) {
-            this.options.push({
-                value: i.toString(),
-                label: i.toString(),
-            });
-        }
     }
 
     goBack(): void {
@@ -31,8 +23,11 @@ export class ConverterAddComponent
     }
 
     addConverter(): void {
-        this.converterService.addConverter(this.model).subscribe(converter => this.model = converter,
-            error => console.log(error));
+        this.converterService.addConverter(this.model).subscribe(converter => {
+                this.router.navigate(['converter-list']);
+            },
+            error => console.log(error)
+        );
     }
 
     addConvertToXliff(): void {
@@ -53,17 +48,8 @@ export class ConverterAddComponent
         this.model.convertFromXliff.splice(i, 1);
     }
 
-    onSingleSelected(option: any): void {
-        console.log(option);
-    }
-
-    onSingleDeselected(option: any): void {
-        console.log(option);
-    }
-
     model: Converter;
     disabled: boolean = false;
     convertToXliffInput: string;
     convertFromXliffInput: string;
-    options: any[];
 }
