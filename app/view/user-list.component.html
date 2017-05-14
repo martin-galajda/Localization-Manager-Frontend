@@ -40,7 +40,7 @@
                             style="width: 100%"
                             (click)="makeAssignable(user.id, !user.isAssignable)"
                     >
-                        {{user.isAssignable ? "Make unassignable" : "Make assignable"}}
+                        {{user.isAssignable ? "Revoke assignee role" : "Grant assignee role"}}
                     </button>
                 </td>
                 <td *ngIf="user.role === 'guest'">

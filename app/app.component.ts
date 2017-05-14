@@ -7,6 +7,7 @@ import { AuthService } from "./js/services/auth.service";
 import 'rxjs/Rx';
 import './public/style/font-awesome.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import {CookieService} from 'angular2-cookie/core';
 
 @Component({
 	moduleId: __filename,
@@ -19,7 +20,8 @@ export class AppComponent implements OnInit {
 	constructor(
 		private activatedRoute: ActivatedRoute,
 		private router: Router,
-		private authService: AuthService
+		private authService: AuthService,
+		private cookieService: CookieService
 	) {}
 
 	ngOnInit(): void {
@@ -35,6 +37,7 @@ export class AppComponent implements OnInit {
 		this.authService.getLoggedUser().subscribe(user => {
 			this.loggedUser = user;
 			this.isLoggedUser = user !== null && user !== undefined;
+			console.log(this.cookieService.getAll());
 		});
 	}
 

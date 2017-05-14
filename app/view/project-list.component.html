@@ -56,8 +56,9 @@
 				<td *ngIf="!project.hidden">{{project.assignee ? project.assignee.name : "No assignee"}}</td>
 				<td *ngIf="!project.hidden"
 					[ngClass]="{
-						'status-done': project.status === 'Completed',
-						'status-in-progress': project.status === 'In progress'
+						'status-done': project.status.toUpperCase().trim() === 'DONE',
+						'status-in-progress': project.status.toUpperCase().trim() === 'IN PROGRESS',
+						'status-closed': project.status.toUpperCase().trim() === 'CLOSED'
 					}"
 				>{{project.status}}</td>
 				<td *ngIf="!project.hidden" class="badge-column"><span class="badge">{{project.wordCount}}</span></td>
