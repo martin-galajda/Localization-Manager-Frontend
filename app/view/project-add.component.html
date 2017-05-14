@@ -6,7 +6,7 @@
 				<i class="fa fa-suitcase" aria-hidden="true"></i>
 				<h2>Create Project</h2>
 			</div>
-			<form *ngIf="model" #projectForm="ngForm">
+			<form *ngIf="projectForm !== null" [formGroup]="projectForm" novalidate>
 				<div class="form-group">
 					<label for="name">Project name *</label>
 					<input class="form-control"
@@ -14,11 +14,10 @@
 						   name="name"
 						   id="name"
 						   required
-						   [(ngModel)]="model.name"
-						   #name="ngModel"
+						   formControlName="name"
 					/>
 
-					<div *ngIf="formErrors.name"
+					<div *ngIf="projectForm.get('name').touched && projectForm.get('name').invalid"
 						 class="alert alert-danger">
 						{{formErrors.name}}
 					</div>
@@ -32,9 +31,10 @@
 						   name="hashMapIdentifier"
 						   id="hashMapIdentifier"
 						   required
-						   [(ngModel)]="model.hashMapIdentifier"/>
+						   formControlName="hashMapIdentifier"
+					/>
 
-					<div *ngIf="formErrors.hashMapIdentifier"
+					<div *ngIf="projectForm.get('hashMapIdentifier').touched && projectForm.get('hashMapIdentifier').invalid"
 						 class="alert alert-danger">
 						{{formErrors.hashMapIdentifier}}
 					</div>
@@ -47,11 +47,10 @@
 						   name="git"
 						   id="git"
 						   required
-						   [(ngModel)]="model.git"
-						   #git="ngModel"
+						   formControlName="git"
 					/>
 
-					<div *ngIf="formErrors.git"
+					<div *ngIf="projectForm.get('git').touched && projectForm.get('git').invalid"
 						 class="alert alert-danger">
 						{{formErrors.git}}
 					</div>
@@ -64,10 +63,10 @@
 						   name="projectKey"
 						   id="projectKey"
 						   required
-						   [(ngModel)]="model.projectKey"
+						   formControlName="projectKey"
 					/>
 
-					<div *ngIf="formErrors.projectKey"
+					<div *ngIf="projectForm.get('projectKey').touched && projectForm.get('projectKey').invalid"
 						 class="alert alert-danger">
 						{{formErrors.projectKey}}
 					</div>
@@ -80,10 +79,10 @@
 						   name="resourcePath"
 						   id="resourcePath"
 						   required
-						   [(ngModel)]="model.resourcePath"
+						   formControlName="resourcePath"
 					/>
 
-					<div *ngIf="formErrors.resourcePath"
+					<div *ngIf="projectForm.get('resourcePath').touched && projectForm.get('resourcePath').invalid"
 						 class="alert alert-danger">
 						{{formErrors.resourcePath}}
 					</div>
@@ -91,14 +90,14 @@
 				<div class="form-group">
 					<label for="tmpBranchesInput">Enter branches for project</label>
 					<div class="input-group">
-						<input class="form-control" type="text" name="tmpBranchesInput" id="tmpBranchesInput" [(ngModel)]="tmpBranchesInput" />
+						<input class="form-control" type="text" name="tmpBranchesInput" id="tmpBranchesInput" [(ngModel)]="tmpBranchesInput" [ngModelOptions]="{standalone: true}" />
 						<span class="input-group-btn">
 							<button class="btn btn-primary" (click)="addBranch()">
 								<i class="fa fa-plus"></i>Add
 							</button>
 						</span>
 					</div>
-					<div class="project-branch" *ngFor="let branch of model.branches; let i = index">
+					<div class="project-branch" *ngFor="let branch of projectForm.get('branches').value; let i = index">
 						{{branch}}
 						<i class="glyphicon glyphicon-remove" (click)="removeBranch(i)"></i>
 					</div>
@@ -108,7 +107,7 @@
 					<label for="assigneeSelect">
 						Select assignee
 					</label>
-					<select class="form-control select" id="assigneeSelect" #selectValue (change)="onAssigneeSelected(selectValue.value)">
+					<select class="form-control select" id="assigneeSelect" formControlName="assignee">
 						<option *ngFor="let user of assignableUsers" [value]="user.id">
 							{{user.name}}
 						</option>
@@ -121,8 +120,7 @@
 					</label>
 					<select class="form-control select"
 							id="converterSelect"
-							#selectConverterValue
-							(change)="onConverterSelected(selectConverterValue.value)"
+							formControlName="converter"
 					>
 						<option *ngFor="let converter of assignableConverters" [value]="converter.id">
 							{{converter.name}}
@@ -142,7 +140,7 @@
 							type="button"
 							class="btn btn-primary btn-save"
 							(click)="addProject()"
-							[disabled]="!projectForm.form.valid"
+							[disabled]="!isFormValid()"
 					>
 						Submit
 					</button>

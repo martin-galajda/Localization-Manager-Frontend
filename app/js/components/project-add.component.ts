@@ -1,13 +1,13 @@
 import { Project } from '../model/entity/Project';
-import {Component, OnInit, AfterViewChecked, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectFetcherService } from '../services/project-fetcher.service';
 import { UserService } from "../services/user.service";
 import { User } from "../model/entity/User";
 import { ConverterService } from "../services/converter.service";
 import {Converter} from "../model/entity/Converter";
-import {NgForm} from "@angular/forms";
-import {CookieService} from 'angular2-cookie/core';
+import {FormArray} from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
 	moduleId: __filename,
@@ -16,7 +16,7 @@ import {CookieService} from 'angular2-cookie/core';
 	styleUrls: ['../../styles/form.component.css']
 })
 
-export class ProjectAddComponent implements OnInit, AfterViewChecked
+export class ProjectAddComponent implements OnInit
 {
 
 	constructor
@@ -25,7 +25,7 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 		private userService: UserService,
 		private projectService: ProjectFetcherService,
 		private converterService: ConverterService,
-		private cookieService: CookieService
+		private formBuilder: FormBuilder
 	)
 	{
 		this.model = new Project();
@@ -44,6 +44,8 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 				throw "Error fetching converters";
 			}
 		)
+
+		this.createForm();
 	}
 
 	goBack(): void {
@@ -51,18 +53,39 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 	}
 
 	addProject(): void {
-		console.log(this.cookieService.getAll());
-		this.projectService.addProject(this.model).subscribe(project => this.router.navigate(['project/detail', project.id]),
+		const project = this.prepareSaveProject();
+		this.projectService.addProject(project).subscribe(project => this.router.navigate(['project/detail', project.id]),
 		error => console.log(error));
 	}
 
 	addBranch(): void {
-		this.model.branches.push(this.tmpBranchesInput);
+		const control = <FormArray>this.projectForm.controls['branches'];
+		control.push(this.formBuilder.control(this.tmpBranchesInput));
+
+		const branches = this.projectForm.get('branches').value;
 		this.tmpBranchesInput = "";
 	}
 
 	removeBranch(i : number): void {
-		this.model.branches.splice(i, 1);
+		const control = <FormArray>this.projectForm.controls['branches'];
+		control.removeAt(i);
+	}
+
+	prepareSaveProject(): Project {
+		const projectModel = this.projectForm.value;
+		const assigneeId = this.projectForm.get('assignee').value;
+		const converterId = this.projectForm.get('converter').value;
+		const newProject: Project = projectModel;
+
+		if (assigneeId) {
+			newProject.assignee = this.assignableUsers.find(user => user.id === assigneeId);
+		}
+
+		if (converterId) {
+			newProject.converter = this.assignableConverters.find(converter => converter.id === converterId);
+		}
+
+		return newProject;
 	}
 
 	onAssigneeSelected(userId : string): void {
@@ -73,68 +96,35 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 		this.model.converter = this.assignableConverters.find(converter => converter.id === converterId);
 	}
 
-	@ViewChild('projectForm') currentForm: NgForm;
-
-	ngAfterViewChecked() {
-		this.formChanged();
-	}
-
-	formChanged() {
-		this.projectForm = this.currentForm;
-		if (this.projectForm) {
-			this.projectForm
-				.valueChanges
-				.subscribe(data => this.onValueChanged(data));
-		}
-	}
-
-	onValueChanged(data?: any) {
-		if (!this.projectForm) { return; }
-		const form = this.projectForm.form;
-
-		for (const field in this.formErrors) {
-			// clear previous error message (if any)
-			this.formErrors[field] = '';
-			const control = form.get(field);
-			if (control && control.touched && control.invalid) {
-				const messages = this.validationMessages[field];
-				for (const key in control.errors) {
-					this.formErrors[field] += messages[key] + ' ';
-				}
-			}
-		}
+	isFormValid(): boolean {
+		return this.projectForm.status === 'VALID';
 	}
 
 	formErrors = {
-		'name': '',
-		'hashMapIdentifier': '',
-		'git': '',
-		'projectKey': '',
-		'resourcePath': ''
+		'name': 'Name is required',
+		'hashMapIdentifier': 'Project ID is required',
+		'git': 'Git Url is required',
+		'projectKey': 'Project key is required',
+		'resourcePath': 'Path to resources is required'
 	};
 
-	validationMessages = {
-		'name': {
-			'required': 'Name is required.',
-		},
-		'hashMapIdentifier': {
-			'required': 'Project ID is required.'
-		},
-		'git': {
-			'required': 'Git Url is required.'
-		},
-		'projectKey': {
-			'required': 'Project key is required.'
-		},
-		'resourcePath': {
-			'required': 'Path to resources is required.'
-		}
-	};
+	createForm() {
+		this.projectForm = this.formBuilder.group({
+			name: ['', Validators.required],
+			hashMapIdentifier: ['', Validators.required],
+			git: ['', Validators.required],
+			projectKey: ['', Validators.required],
+			resourcePath: ['', Validators.required],
+			branches: this.formBuilder.array([]),
+			assignee: '',
+			converter: '',
+		})
+	}
 
 	model: Project;
 	disabled: boolean = false;
 	tmpBranchesInput: string;
 	assignableUsers: User[] = [];
 	assignableConverters: Converter[] = [];
-	projectForm: NgForm;
+	projectForm: FormGroup = null;
 }

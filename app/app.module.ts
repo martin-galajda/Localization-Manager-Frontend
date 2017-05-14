@@ -30,7 +30,7 @@ import { ConverterService } 				from "./js/services/converter.service";
 import { UserService } 				from "./js/services/user.service";
 import { AdminGuard } from "./js/services/admin-guard.service";
 import { CustomRequestOptions } from "./js/CustomRequestOptions";
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { ReactiveFormsModule } from '@angular/forms';  // <-- #1 import module
 
 const cookieStrategyFactory = () => {
 	return new CookieXSRFStrategy('PLAY_SESSION', 'X-Requested-With');
@@ -42,6 +42,7 @@ const cookieStrategyFactory = () => {
 		FormsModule,
 		HttpModule,
 		JsonpModule,
+		ReactiveFormsModule,
 		routing,
 		InfiniteScrollModule
 	],
@@ -69,7 +70,6 @@ const cookieStrategyFactory = () => {
 		UserService,
 		AuthGuard,
 		AdminGuard,
-        CookieService,
 		{
 			provide: XSRFStrategy,
 			useValue: cookieStrategyFactory()
