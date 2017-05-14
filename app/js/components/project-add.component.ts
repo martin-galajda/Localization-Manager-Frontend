@@ -7,6 +7,7 @@ import { User } from "../model/entity/User";
 import { ConverterService } from "../services/converter.service";
 import {Converter} from "../model/entity/Converter";
 import {NgForm} from "@angular/forms";
+import {CookieService} from 'angular2-cookie/core';
 
 @Component({
 	moduleId: __filename,
@@ -23,7 +24,8 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 		private router: Router,
 		private userService: UserService,
 		private projectService: ProjectFetcherService,
-		private converterService: ConverterService
+		private converterService: ConverterService,
+		private cookieService: CookieService
 	)
 	{
 		this.model = new Project();
@@ -49,6 +51,7 @@ export class ProjectAddComponent implements OnInit, AfterViewChecked
 	}
 
 	addProject(): void {
+		console.log(this.cookieService.getAll());
 		this.projectService.addProject(this.model).subscribe(project => this.router.navigate(['project/detail', project.id]),
 		error => console.log(error));
 	}
