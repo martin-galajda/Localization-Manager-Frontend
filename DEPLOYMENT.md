@@ -54,11 +54,11 @@ In this step you can use guide provided by google on URL: https://developers.goo
   </li>
   <li>
   Do not forget to click "Create" button and check the fields. Also fill in this redirect URI into 
-  "authentication.conf" inside <em>conf</em> folder in BACKEND application (https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/authentication.conf).
+  "locale_manager.conf" inside <em>conf</em> folder in BACKEND application.
   </li>
   <li>
   You will be prompted with you client ID and client secret.
-  You need to copy this into "conf/google.oauth2.conf" file inside BACKEND application folder.
+  You need to copy this into "conf/locale_manager.conf" file inside the back-end application folder.
   </li>
     
 </ul>
@@ -68,7 +68,7 @@ In this step you can use guide provided by google on URL: https://developers.goo
 
 <ul>
   <li>
-    Locate "app.config.json" file inside <em>src</em> folder in FRONTEND application.
+    Locate "app.config.json" file inside <em>src</em> folder in the front-end application.
     Fill in the URL of backend application.
   </li>
 </ul>
@@ -76,8 +76,6 @@ In this step you can use guide provided by google on URL: https://developers.goo
 <h1> CONFIGURING BACKEND </h1>
 <ul>
   <li>
-    Locate "http.client.conf" file inside "conf" folder in BACKEND application.
-    Fill in the URL of frontend application.
-    File located on github: https://github.com/Martinator112/prototype_localization_manager_api/blob/master/conf/http.client.conf
+    Continue by steps provided in the back-end application folder in README file.
   </li>
 </ul>
